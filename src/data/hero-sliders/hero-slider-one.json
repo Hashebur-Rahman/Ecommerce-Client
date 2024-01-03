@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "Smart Products",
+    "subtitle": "Winter Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-hm1-2.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 2,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 3,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 4,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 5,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 6,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 7,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 8,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 9,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-1.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 10,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-4.png",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 11,
+    "title": "Smart Products",
+    "subtitle": "Summer Offer 2024 Collection",
+    "image": "/assets/img/slider/single-slide-2.png",
+    "url": "/shop-grid-standard"
+  }
+]

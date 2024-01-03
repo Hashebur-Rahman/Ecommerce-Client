@@ -1,0 +1,75 @@
+[
+  {
+    "id": "1",
+    "image": "/assets/img/team/team-1.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr. Hasehebur Rahman",
+    "position": "Chairman"
+  },
+  {
+    "id": "2",
+    "image": "/assets/img/team/team-3.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr. Nimur Hasan",
+    "position": "Senior Developer"
+  },
+  {
+    "id": "3",
+    "image": "/assets/img/team/team-2.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Abu Rayhan",
+    "position": "Product Manager"
+  },
+  {
+    "id": "4",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "Manager"
+  } ,
+  {
+    "id": "5",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "Sell Manager"
+  } ,
+  {
+    "id": "6",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "Social Media Manager"
+  } ,
+  {
+    "id": "7",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "News Portal"
+  } 
+  ,
+  {
+    "id": "8",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "Accounter"
+  } 
+]
