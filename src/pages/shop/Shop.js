@@ -10,7 +10,7 @@ import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
 
-const ShopGridFullWidth = ({location}) => {
+const Shop = () => {
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -64,7 +64,7 @@ const ShopGridFullWidth = ({location}) => {
                 />
 
                 <div className="shop-area pt-95 pb-100">
-                    <div className="container-fluid">
+                    <div className="container">
                         <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}
@@ -74,7 +74,7 @@ const ShopGridFullWidth = ({location}) => {
                                 {/* shop topbar default */}
                                 <ShopTopbar getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={products.length} sortedProductCount={currentData.length} />
 
-                                {/* shop page content default */}
+                                {/* shop page  content default show product */}
                                 <ShopProducts layout={layout} products={currentData} />
 
                                 {/* shop product pagination */}
@@ -100,4 +100,5 @@ const ShopGridFullWidth = ({location}) => {
     )
 }
 
-export default ShopGridFullWidth;
+
+export default Shop;

@@ -5,7 +5,7 @@ import ProductgridList from "./ProductgridList";
 const ShopProducts = ({ products, layout }) => {
   return (
     <div className="shop-bottom-area mt-35">
-      <div className={clsx("row", layout)}>
+      <div className={clsx("row", 'grid three-column')}>
         <ProductgridList products={products} spaceBottomClass="mb-25" />
       </div>
     </div>
