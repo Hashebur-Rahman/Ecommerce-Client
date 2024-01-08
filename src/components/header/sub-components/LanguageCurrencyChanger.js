@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { setCurrency } from "../../../store/slices/currency-slice"
+ 
 
 const LanguageCurrencyChanger = ({ currency }) => {
   const { i18n } = useTranslation();
@@ -11,10 +11,7 @@ const LanguageCurrencyChanger = ({ currency }) => {
     i18n.changeLanguage(languageCode);
   };
 
-  const setCurrencyTrigger = e => {
-    const currencyName = e.target.value;
-    dispatch(setCurrency(currencyName));
-  };
+  
 
   return (
     <div className="language-currency-wrap">
@@ -56,30 +53,7 @@ const LanguageCurrencyChanger = ({ currency }) => {
         {/* <span>
           {currency.currencyName} <i className="fa fa-angle-down" />
         </span> */}
-        <div className="lang-car-dropdown">
-          <ul>
-            <li>
-              <button value="BD tk" onClick={e => setCurrencyTrigger(e)}>
-               BD TK
-              </button>
-            </li>
-            <li>
-              <button value="USD" onClick={e => setCurrencyTrigger(e)}>
-                USD
-              </button>
-            </li>
-            <li>
-              <button value="EUR" onClick={e => setCurrencyTrigger(e)}>
-                EUR
-              </button>
-            </li>
-            {/* <li>
-              <button value="GBP" onClick={e => setCurrencyTrigger(e)}>
-               BD TK
-              </button>
-            </li> */}
-          </ul>
-        </div>
+       
       </div> 
 
       <div className="same-language-currency">

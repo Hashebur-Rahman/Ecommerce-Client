@@ -51,7 +51,7 @@ const Shop = () => {
         <Fragment>
             <SEO
                 titleTemplate="Shop Page"
-                description="Shop page of flone react minimalist eCommerce template."
+                description="Shop page of Shohojdokan react minimalist eCommerce template."
             />
 
             <LayoutOne headerTop="visible">

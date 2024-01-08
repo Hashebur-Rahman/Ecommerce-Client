@@ -33,8 +33,8 @@ const App = () => {
         <ScrollToTop>
           <Suspense
             fallback={
-              <div className="flone-preloader-wrapper">
-                <div className="flone-preloader">
+              <div className="Shohojdokan-preloader-wrapper">
+                <div className="Shohojdokan-preloader">
                   <span></span>
                   <span></span>
                 </div>

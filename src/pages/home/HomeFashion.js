@@ -10,7 +10,7 @@ const HomeFashion = () => {
     <Fragment>
       <SEO
         titleTemplate="Fashion Home"
-        description="Fashion home of flone react minimalist eCommerce template."
+        description="Fashion home of Shohojdokan react minimalist eCommerce template."
       />
       <LayoutOne
         headerContainerClass="container-fluid"
@@ -20,13 +20,13 @@ const HomeFashion = () => {
         <HeroSliderOne />
 
         {/* featured icon */}
-        <FeatureIcon spaceTopClass="pt-100" spaceBottomClass="pb-60" />
 
         {/* tab product */}
-        <TabProduct spaceBottomClass="pb-60" category="fashion" />
+        <TabProduct spaceBottomClass="pb-60 pt-40"  category="fashion" />
 
         {/* blog featured */}
         {/* <BlogFeatured spaceBottomClass="pb-55" /> */}
+        <FeatureIcon spaceTopClass="pt-100" spaceBottomClass="pb-60" />
       </LayoutOne>
     </Fragment>
   );
