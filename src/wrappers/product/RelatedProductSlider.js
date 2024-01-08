@@ -13,20 +13,19 @@ const settings = {
   spaceBetween: 30,
   breakpoints: {
     320: {
-      slidesPerView: 1
+      slidesPerView: 1,
     },
     576: {
-      slidesPerView: 2
+      slidesPerView: 2,
     },
     768: {
-      slidesPerView: 3
+      slidesPerView: 3,
     },
     1024: {
-      slidesPerView: 4
-    }
-  }
+      slidesPerView: 4,
+    },
+  },
 };
-
 
 const RelatedProductSlider = ({ spaceBottomClass, category }) => {
   const { products } = useSelector((state) => state.product);
@@ -35,7 +34,7 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
   const prods = getProducts(products, category, null, 6);
-  
+
   return (
     <div className={clsx("related-product-area", spaceBottomClass)}>
       <div className="container">
@@ -46,27 +45,23 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
         />
         {prods?.length ? (
           <Swiper options={settings}>
-              {prods.map(product => (
-                <SwiperSlide key={product.id}>
-                  <ProductGridSingle
-                    product={product}
-                    currency={currency}
-                    cartItem={
-                      cartItems.find((cartItem) => cartItem.id === product.id)
-                    }
-                    wishlistItem={
-                      wishlistItems.find(
-                        (wishlistItem) => wishlistItem.id === product.id
-                      )
-                    }
-                    compareItem={
-                      compareItems.find(
-                        (compareItem) => compareItem.id === product.id
-                      )
-                    }
-                  />
-                </SwiperSlide>
-              ))}
+            {prods.map((product) => (
+              <SwiperSlide key={product.id}>
+                <ProductGridSingle
+                  product={product}
+                  currency={currency}
+                  cartItem={cartItems.find(
+                    (cartItem) => cartItem.id === product.id
+                  )}
+                  wishlistItem={wishlistItems.find(
+                    (wishlistItem) => wishlistItem.id === product.id
+                  )}
+                  compareItem={compareItems.find(
+                    (compareItem) => compareItem.id === product.id
+                  )}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         ) : null}
       </div>
@@ -76,7 +71,7 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
 
 RelatedProductSlider.propTypes = {
   category: PropTypes.string,
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default RelatedProductSlider;

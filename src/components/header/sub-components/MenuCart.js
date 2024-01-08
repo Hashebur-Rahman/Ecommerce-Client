@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getDiscountPrice } from "../../../helpers/product";
-import { deleteFromCart } from "../../../store/slices/cart-slice";
+import { deleteFromCart } from "../../../store/slices/cart-slice"
 
 const MenuCart = () => {
   const dispatch = useDispatch();
@@ -44,7 +44,9 @@ const MenuCart = () => {
                   </div>
                   <div className="shopping-cart-title">
                     <h4>
-                      <Link to={process.env.PUBLIC_URL + "/product/" + item.id}>
+                      <Link
+                        to={process.env.PUBLIC_URL + "/product/" + item.id}
+                      >
                         {" "}
                         {item.name}{" "}
                       </Link>
@@ -55,7 +57,8 @@ const MenuCart = () => {
                         ? currency.currencySymbol + finalDiscountedPrice
                         : currency.currencySymbol + finalProductPrice}
                     </span>
-                    {item.selectedProductColor && item.selectedProductSize ? (
+                    {item.selectedProductColor &&
+                    item.selectedProductSize ? (
                       <div className="cart-item-variation">
                         <span>Color: {item.selectedProductColor}</span>
                         <span>Size: {item.selectedProductSize}</span>
@@ -65,9 +68,7 @@ const MenuCart = () => {
                     )}
                   </div>
                   <div className="shopping-cart-delete">
-                    <button
-                      onClick={() => dispatch(deleteFromCart(item.cartItemId))}
-                    >
+                    <button onClick={() => dispatch(deleteFromCart(item.cartItemId))}>
                       <i className="fa fa-times-circle" />
                     </button>
                   </div>
