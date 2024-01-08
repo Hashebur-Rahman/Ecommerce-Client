@@ -5,7 +5,7 @@ import ProductgridList from "./ProductgridList";
 const ShopProducts = ({ products, layout }) => {
   return (
     <div className="shop-bottom-area mt-35">
-      <div className={clsx("row", 'grid three-column')}>
+      <div className={clsx("row", layout)}>
         <ProductgridList products={products} spaceBottomClass="mb-25" />
       </div>
     </div>
@@ -14,7 +14,7 @@ const ShopProducts = ({ products, layout }) => {
 
 ShopProducts.propTypes = {
   layout: PropTypes.string,
-  products: PropTypes.array
+  products: PropTypes.array,
 };
 
 export default ShopProducts;

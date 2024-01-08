@@ -6,7 +6,7 @@ const ShopTopbar = ({
   getLayout,
   getFilterSortParams,
   productCount,
-  sortedProductCount
+  sortedProductCount,
 }) => {
   return (
     <Fragment>
@@ -25,7 +25,7 @@ ShopTopbar.propTypes = {
   getFilterSortParams: PropTypes.func,
   getLayout: PropTypes.func,
   productCount: PropTypes.number,
-  sortedProductCount: PropTypes.number
+  sortedProductCount: PropTypes.number,
 };
 
 export default ShopTopbar;
