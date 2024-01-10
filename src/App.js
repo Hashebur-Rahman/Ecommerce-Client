@@ -12,6 +12,9 @@ const ShopGridStandard = lazy(() => import("./pages/shop/Shop"));
 
 // product pages
 const Product = lazy(() => import("./pages/shop-product/Product"));
+const ProductDescription = lazy(() => import("./wrappers/product/ProductDescription"));
+
+
 
 
 // other pages
@@ -62,6 +65,10 @@ const App = () => {
               <Route
                 path={process.env.PUBLIC_URL + "/product/:id"}
                 element={<Product />}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/products/:id"}
+                element={<ProductDescription />}
               />
              
 

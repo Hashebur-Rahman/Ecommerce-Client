@@ -27,7 +27,7 @@ console.log(categories);
   const getCategories = async () => {
     try {
       const { data } = await axios.get(
-        "https://e-comers-server.vercel.app/api/CreateCategory"
+        "http://localhost:5000/api/CreateCategory"
       );
       // console.log(data);
       setCategories(data);

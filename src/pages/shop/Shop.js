@@ -9,6 +9,8 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import ShopSidebar from "../../wrappers/product/ShopSidebar";
 import ShopTopbar from "../../wrappers/product/ShopTopbar";
 import ShopProducts from "../../wrappers/product/ShopProducts";
+import { Base_Url } from "../../Config/config";
+import axios  from "axios";
 
 const Shop = () => {
   const [layout, setLayout] = useState("grid three-column");
@@ -19,8 +21,24 @@ const Shop = () => {
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentData, setCurrentData] = useState([]);
+  const [products, setProduct] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
-  const { products } = useSelector((state) => state.product);
+
+  useEffect(() => {
+    const getAllProduct = async () => {
+      try {
+        const { data } = await axios.get(`${Base_Url}/api/getProduct`);
+        // console.log(data);
+        setProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAllProduct();
+  }, []);
+
+  // const { products } = useSelector((state) => state.product);
 
   const pageLimit = 15;
   let { pathname } = useLocation();
@@ -63,7 +81,7 @@ const Shop = () => {
         <Breadcrumb
           pages={[
             { label: "Home", path: process.env.PUBLIC_URL + "/" },
-            { label: "Shop", path: process.env.PUBLIC_URL + pathname },
+            { label: "Shop Product", path: process.env.PUBLIC_URL + pathname },
           ]}
         />
 
@@ -72,11 +90,11 @@ const Shop = () => {
             <div className="row">
               <div className="col-lg-3 order-2 order-lg-1">
                 {/* shop sidebar */}
-                <ShopSidebar
+                {/* <ShopSidebar
                   products={products}
                   getSortParams={getSortParams}
                   sideSpaceClass="mr-30"
-                />
+                /> */}
               </div>
               <div className="col-lg-9 order-1 order-lg-2">
                 {/* shop topbar default */}

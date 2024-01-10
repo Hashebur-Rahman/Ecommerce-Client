@@ -1,87 +1,192 @@
-import PropTypes from "prop-types";
-import clsx from "clsx";
+import axios from "axios";
+import React, { useEffect, Fragment, useState } from "react";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SectionTitle from "../../components/section-title/SectionTitle";
-import ProductGrid from "./ProductGrid";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import { Link, useNavigate } from "react-router-dom";
+import clsx from "clsx";
+import Rating from "../../components/product/sub-components/ProductRating";
+import ProductRating from "../../components/product/sub-components/ProductRating";
 
-const TabProduct = ({
-  spaceTopClass,
-  spaceBottomClass,
-  bgColorClass,
-  category
-}) => {
+export default function TabProduct() {
+  const [product, setProduct] = useState([]);
+  const [displayLimit, setDisplayLimit] = useState(4);
+  console.log(product);
+  //get cat
+
+  useEffect(() => {
+    const getAllProduct = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:5000/api/getProduct"
+        );
+        // console.log(data);
+        setProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAllProduct();
+  }, []);
+
+  const navigate = useNavigate();
+  const fetchProduct = product.filter((item) => item.sellOption === "bestSell");
+
+  // Apply a limit (e.g., limit to the first 5 items)
+  const limitedProducts = fetchProduct.slice(0, displayLimit);
+
+  const showMore = () => {
+    setDisplayLimit((prevLimit) => prevLimit + 10); // Increase the limit by 10
+  };
+
+  console.log(fetchProduct);
+
   return (
     // running pages
-    <div
-      className={clsx("product-area", spaceTopClass, spaceBottomClass, bgColorClass)}
-    >
-      <div className="container">
-        <SectionTitle titleText="DAILY DEALS!" positionClass="text-center" />
-        <Tab.Container defaultActiveKey="bestSeller">
-          <Nav
-            variant="pills"
-            className="product-tab-list pt-30 pb-55 text-center"
-          >
-            <Nav.Item>
-              <Nav.Link eventKey="newArrival">
-                <h4>New Arrivals</h4>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="bestSeller">
-                <h4>Best Sellers</h4>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="saleItems">
-                <h4>Sale Items</h4>
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-          <Tab.Content>
-            <Tab.Pane eventKey="newArrival">
-              <div className="row">
-                <ProductGrid
-                  category={category}
-                  type="new"
-                  limit={10}
-                  spaceBottomClass="mb-25"
-                />
-              </div>
-            </Tab.Pane>
-            <Tab.Pane eventKey="bestSeller">
-              <div className="row">
-                <ProductGrid
-                  category={category}
-                  type="bestSeller"
-                  limit={8}
-                  spaceBottomClass="mb-25"
-                />
-              </div>
-            </Tab.Pane>
-            <Tab.Pane eventKey="saleItems">
-              <div className="row">
-                <ProductGrid
-                  category={category}
-                  type="saleItems"
-                  limit={20}
-                  spaceBottomClass="mb-25"
-                />
-              </div>
-            </Tab.Pane>
-          </Tab.Content>
-        </Tab.Container>
-      </div>
+
+    <div className="container mt-3">
+      <SectionTitle titleText="DAILY DEALS!" positionClass="text-center" />
+      <Tab.Container defaultActiveKey="bestSeller">
+        <Nav
+          variant="pills"
+          className="product-tab-list pt-30 pb-55 text-center"
+        >
+          <Nav.Item>
+            <Nav.Link eventKey="bestSeller">
+              <h4>Best Sellers</h4>
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+
+        <Tab.Content>
+          <Tab.Pane eventKey="bestSeller">
+            <Row xs={2} sm={3} md={4} lg={4} className="xs:g-2 g-2 h-75">
+              {limitedProducts.map((p) => (
+                <Col className={clsx("product-wrap")} key={p._id}>
+                  <Card onClick={() => navigate(`/products/${p._id}`)}>
+                    <div className="product-img img-fluid">
+                      <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
+                        <img className="default-img " src={p.image} alt="" />
+                      </Link>
+                      {p.discount || p.new ? (
+                        <div className="product-img-badges">
+                          {p.discount ? (
+                            <span className="pink">-{p.discount}%</span>
+                          ) : (
+                            ""
+                          )}
+                          {p.new ? <span className="purple">New</span> : ""}
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <div className="product-content text-center">
+                      <h3>
+                        <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
+                          {p.name}
+                        </Link>
+                      </h3>
+                      {p.rating && p.rating > 0 ? (
+                        <div className="product-rating">
+                          <Rating ratingValue={p.rating} />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <div className="product-price">
+                        {p.price !== null ? (
+                          <Fragment>
+                            <span>৳ {(p.price / p.discount).toFixed(2)}</span>
+
+                            <span className="old">৳ {p.discount}</span>
+                          </Fragment>
+                        ) : (
+                          <span>৳{p.price} </span>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+
+            <div className="d-flex justify-content-center mt-2">
+              <button className="seemore" onClick={showMore}>
+                Show More
+              </button>
+            </div>
+            <div className="button-box"></div>
+          </Tab.Pane>
+        </Tab.Content>
+      </Tab.Container>
     </div>
   );
-};
+}
 
-TabProduct.propTypes = {
-  bgColorClass: PropTypes.string,
-  category: PropTypes.string,
-  spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
-};
+// import PropTypes from "prop-types";
+// import clsx from "clsx";
+// import Tab from "react-bootstrap/Tab";
+// import Nav from "react-bootstrap/Nav";
+// import SectionTitle from "../../components/section-title/SectionTitle";
+// import ProductGrid from "./ProductGrid";
 
-export default TabProduct;
+// const TabProduct = ({
+//   spaceTopClass,
+//   spaceBottomClass,
+//   bgColorClass,
+//   category,
+// }) => {
+//   return (
+//     // running pages
+//     <div
+//       className={clsx(
+//         "product-area",
+//         spaceTopClass,
+//         spaceBottomClass,
+//         bgColorClass
+//       )}
+//     >
+//       <div className="container">
+//         <SectionTitle titleText="DAILY DEALS!" positionClass="text-center" />
+//         <Tab.Container defaultActiveKey="bestSeller">
+//           <Nav
+//             variant="pills"
+//             className="product-tab-list pt-30 pb-55 text-center"
+//           >
+//             <Nav.Item>
+//               <Nav.Link eventKey="bestSeller">
+//                 <h4>Best Sellers</h4>
+//               </Nav.Link>
+//             </Nav.Item>
+//           </Nav>
+//           <Tab.Content>
+//             <Tab.Pane eventKey="bestSeller">
+//               <div className="row">
+//                 <ProductGrid
+//                   category={category}
+//                   type="bestSeller"
+//                   limit={8}
+//                   spaceBottomClass="mb-25"
+//                 />
+//               </div>
+//             </Tab.Pane>
+//           </Tab.Content>
+//         </Tab.Container>
+//       </div>
+//     </div>
+//   );
+// };
+
+// TabProduct.propTypes = {
+//   bgColorClass: PropTypes.string,
+//   category: PropTypes.string,
+//   spaceBottomClass: PropTypes.string,
+//   spaceTopClass: PropTypes.string,
+// };
+
+// export default TabProduct;

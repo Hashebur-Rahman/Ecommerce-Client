@@ -8,7 +8,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       <div className="footer-logo">
         <Link to={process.env.PUBLIC_URL + "/"}>
           {/* <img alt="" src={process.env.PUBLIC_URL + footerLogo} /> */}
-        <p className="display-6 fw-me">Shohojdokan</p>
+        <p className="display-6">Dokan</p>
         </Link>
       </div>
       <p>

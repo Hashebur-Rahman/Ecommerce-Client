@@ -7,13 +7,18 @@ import ProductDescriptionInfo from "../../components/product/ProductDescriptionI
 import ProductImageGallerySideThumb from "../../components/product/ProductImageGallerySideThumb";
 import ProductImageFixed from "../../components/product/ProductImageFixed";
 
-const ProductImageDescription = ({ spaceTopClass, spaceBottomClass, galleryType, product }) => {
+const ProductImageDescription = ({
+  spaceTopClass,
+  spaceBottomClass,
+  galleryType,
+  product,
+}) => {
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
-  const wishlistItem = wishlistItems.find(item => item.id === product.id);
-  const compareItem = compareItems.find(item => item.id === product.id);
+  const wishlistItem = wishlistItems.find((item) => item.id === product.id);
+  const compareItem = compareItems.find((item) => item.id === product.id);
 
   const discountedPrice = getDiscountPrice(product.price, product.discount);
   const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
