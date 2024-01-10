@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
+import { useParams, useNavigate } from "react-router-dom"; 
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Fragment } from "react";
@@ -19,7 +16,7 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import Paginator from "react-hooks-paginator";
 import { Base_Url } from "../../Config/config";
 import clsx from "clsx";
-import RelatedProductSlider from "./RelatedProductSlider";
+ 
 import RelatedProduct from "./RelatedProduct";
 
 const ProductDescription = ({
@@ -30,9 +27,7 @@ const ProductDescription = ({
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
-  const [relatedProducts, setRelatedProducts] = useState([]);
-  const [selectedSize, setSelectedSize] = useState("");
-  const [availableSizes, setAvailableSizes] = useState([]);
+ 
 
   console.log(id);
   let { pathname } = useLocation();
@@ -73,22 +68,7 @@ const ProductDescription = ({
     }
   };
 
-  //get similar product
-  // const getSimilarProduct = async (pid, cid) => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://new-ecchanir-server.vercel.app/api/v1/product/related-product/${pid}/${cid}`
-  //     );
-  //     setRelatedProducts(data?.products);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // handle size control
-
-  // const handleSizeChange = (size) => {
-  //   setSelectedSize(size);
-  // };
+  
 
   console.log(product);
   return (

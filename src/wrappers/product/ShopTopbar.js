@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import ShopTopAction from "../../components/product/ShopTopAction";
+import ShopSearch from "../../components/product/ShopSearch";
 
 const ShopTopbar = ({
   getLayout,
@@ -11,6 +12,7 @@ const ShopTopbar = ({
   return (
     <Fragment>
       {/* shop top action */}
+      <ShopSearch />
       <ShopTopAction
         getLayout={getLayout}
         getFilterSortParams={getFilterSortParams}

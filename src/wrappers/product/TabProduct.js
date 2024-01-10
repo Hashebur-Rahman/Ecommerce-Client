@@ -9,20 +9,19 @@ import Card from "react-bootstrap/Card";
 import { Link, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import Rating from "../../components/product/sub-components/ProductRating";
-import ProductRating from "../../components/product/sub-components/ProductRating";
+import { Base_Url } from "../../Config/config";
 
 export default function TabProduct() {
   const [product, setProduct] = useState([]);
   const [displayLimit, setDisplayLimit] = useState(4);
+  const navigate = useNavigate();
   console.log(product);
   //get cat
 
   useEffect(() => {
     const getAllProduct = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:5000/api/getProduct"
-        );
+        const { data } = await axios.get(`${Base_Url}/api/getProduct`);
         // console.log(data);
         setProduct(data);
       } catch (error) {
@@ -33,7 +32,7 @@ export default function TabProduct() {
     getAllProduct();
   }, []);
 
-  const navigate = useNavigate();
+
   const fetchProduct = product.filter((item) => item.sellOption === "bestSell");
 
   // Apply a limit (e.g., limit to the first 5 items)
@@ -51,10 +50,7 @@ export default function TabProduct() {
     <div className="container mt-3">
       <SectionTitle titleText="DAILY DEALS!" positionClass="text-center" />
       <Tab.Container defaultActiveKey="bestSeller">
-        <Nav
-          variant="pills"
-          className="product-tab-list pt-30 pb-55 text-center"
-        >
+        <Nav variant="pills" className="product-tab-list  text-center">
           <Nav.Item>
             <Nav.Link eventKey="bestSeller">
               <h4>Best Sellers</h4>
