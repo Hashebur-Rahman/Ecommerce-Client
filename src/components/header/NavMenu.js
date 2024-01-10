@@ -28,16 +28,13 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
            
           </li>
           <li>
+
+          </li>
+          <li>
             <Link to={process.env.PUBLIC_URL + "/shop"}>
               {" "}
-              {t("shop")}
-              {sidebarMenu ? (
-                <span>
-                  <i className="fa fa-angle-right"></i>
-                </span>
-              ) : (
-                <i className="fa  " />
-              )}
+              {t("collection")}
+             
             </Link>
              
           </li>

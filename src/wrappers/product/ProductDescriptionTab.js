@@ -180,7 +180,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
 
 ProductDescriptionTab.propTypes = {
   productFullDesc: PropTypes.string,
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default ProductDescriptionTab;

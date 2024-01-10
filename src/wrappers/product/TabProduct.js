@@ -97,9 +97,9 @@ export default function TabProduct() {
                       <div className="product-price">
                         {p.price !== null ? (
                           <Fragment>
-                            <span>৳ {(p.price / p.discount).toFixed(2)}</span>
+                            <span>৳ {(p.price)}</span>
 
-                            <span className="old">৳ {p.discount}</span>
+                            <span className="old">৳ {p.price+p.discount*p.discount}</span>
                           </Fragment>
                         ) : (
                           <span>৳{p.price} </span>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom"; 
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Fragment } from "react";
@@ -16,7 +16,7 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import Paginator from "react-hooks-paginator";
 import { Base_Url } from "../../Config/config";
 import clsx from "clsx";
- 
+
 import RelatedProduct from "./RelatedProduct";
 
 const ProductDescription = ({
@@ -27,7 +27,6 @@ const ProductDescription = ({
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
- 
 
   console.log(id);
   let { pathname } = useLocation();
@@ -68,8 +67,6 @@ const ProductDescription = ({
     }
   };
 
-  
-
   console.log(product);
   return (
     <Fragment>
@@ -90,7 +87,7 @@ const ProductDescription = ({
           ]}
         />
         <div className={clsx("shop-area", spaceTopClass, spaceBottomClass)}>
-          <div className="container">
+          <div className="container mt-20">
             <div className="row">
               <div className="col-lg-6 col-md-6">
                 {/* product image gallery */}

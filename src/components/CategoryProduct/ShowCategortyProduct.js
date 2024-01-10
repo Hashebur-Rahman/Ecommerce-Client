@@ -60,9 +60,9 @@ export default function ShowCategortyProduct({
             },
           ]}
         />
-        <ShopSearch />
 
         <div className="container mb-20">
+          <ShopSearch />
           <div className={clsx("shop-area", spaceTopClass, spaceBottomClass)}>
             <Row
               xs={2}

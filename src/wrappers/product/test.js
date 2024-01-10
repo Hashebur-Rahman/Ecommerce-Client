@@ -7,6 +7,7 @@ import Rating from "./sub-components/ProductRating";
 import { addToCart } from "../../store/slices/cart-slice";
 import { addToWishlist } from "../../store/slices/wishlist-slice";
 import { addToCompare } from "../../store/slices/compare-slice";
+import SizeSelector from "../SizeSelecror/SizeSelector";
 
 const ProductDescriptionInfo = ({
   product,
@@ -19,6 +20,8 @@ const ProductDescriptionInfo = ({
   compareItem,
 }) => {
   const dispatch = useDispatch();
+  const [selectedSize, setSelectedSize] = useState("");
+
   const [selectedProductColor, setSelectedProductColor] = useState(
     product.variation ? product.variation[0].color : ""
   );
@@ -36,7 +39,12 @@ const ProductDescriptionInfo = ({
     selectedProductColor,
     selectedProductSize
   );
-  console.log(product);
+
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
+  };
+
+  console.log(product.selectedOptions);
   return (
     <div className="product-details-content ml-70">
       <h2>{product.name}</h2>
@@ -61,6 +69,34 @@ const ProductDescriptionInfo = ({
       )}
       <div className="pro-details-list">
         <p>{product.shortDescription}</p>
+      </div>
+
+      <div className=" ">
+        <p className="mb-0">Size :</p>
+        {product.selectedOptions > 0 && (
+          <SizeSelector
+            sizes={product.selectedOptions}
+            selectedSize={selectedSize}
+            onSizeChange={handleSizeChange}
+          />
+        )}
+      </div>
+
+      <div className="pro-details-size-content">
+        {product.selectedOptions &&
+          product.selectedOptions.map((singleSize, key) => (
+            <label className={`pro-details-size-content--single`} key={key}>
+              <input
+                type="radio"
+                value={singleSize}
+                checked={singleSize === selectedProductSize ? "checked" : ""}
+                onChange={() => {
+                  setSelectedProductSize(singleSize.name);
+                }}
+              />
+              <span className="size-name">{singleSize.name}</span>
+            </label>
+          ))}
       </div>
 
       {product.variation ? (
@@ -96,6 +132,7 @@ const ProductDescriptionInfo = ({
           </div>
           <div className="pro-details-size">
             <span>Size</span>
+
             <div className="pro-details-size-content">
               {product.variation &&
                 product.variation.map((single) => {

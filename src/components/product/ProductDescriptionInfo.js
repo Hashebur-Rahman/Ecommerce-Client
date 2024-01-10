@@ -28,9 +28,7 @@ const ProductDescriptionInfo = ({
   const [selectedProductSize, setSelectedProductSize] = useState(
     product.variation ? product.variation[0].size[0].name : ""
   );
-  const [productStock, setProductStock] = useState(
-    product.variation ? product.variation[0].size[0].stock : product.stock
-  );
+
   const [quantityCount, setQuantityCount] = useState(1);
 
   const productCartQty = getProductCartQuantity(
@@ -46,7 +44,7 @@ const ProductDescriptionInfo = ({
 
   console.log(product.selectedOptions);
   return (
-    <div className="product-details-content ml-70">
+    <div className="product-details-content mt-20 ml-70">
       <h2>{product.name}</h2>
       <div className="product-details-price">
         {discountedPrice !== null ? (
@@ -120,7 +118,7 @@ const ProductDescriptionInfo = ({
                       onChange={() => {
                         setSelectedProductColor(single.color);
                         setSelectedProductSize(single.size[0].name);
-                        setProductStock(single.size[0].stock);
+
                         setQuantityCount(1);
                       }}
                     />
@@ -152,8 +150,7 @@ const ProductDescriptionInfo = ({
                                   : ""
                               }
                               onChange={() => {
-                                setSelectedProductSize(singleSize.name);
-                                setProductStock(singleSize.stock);
+                                setSelectedProductSize(singleSize.name);                               
                                 setQuantityCount(1);
                               }}
                             />
@@ -201,7 +198,7 @@ const ProductDescriptionInfo = ({
             <button
               onClick={() =>
                 setQuantityCount(
-                  quantityCount < productStock - productCartQty
+                  quantityCount  - productCartQty
                     ? quantityCount + 1
                     : quantityCount
                 )
@@ -212,7 +209,7 @@ const ProductDescriptionInfo = ({
             </button>
           </div>
           <div className="pro-details-cart btn-hover">
-            {productStock && productStock > 0 ? (
+            {
               <button
                 onClick={() =>
                   dispatch(
@@ -232,81 +229,15 @@ const ProductDescriptionInfo = ({
                     })
                   )
                 }
-                disabled={productCartQty >= productStock}
+                disabled={productCartQty}
               >
                 {" "}
                 Add To Cart{" "}
               </button>
-            ) : (
-              <button disabled>Out of Stock</button>
-            )}
+            }
           </div>
-          {/* <div className="pro-details-wishlist">
-            <button
-              className={wishlistItem !== undefined ? "active" : ""}
-              disabled={wishlistItem !== undefined}
-              title={
-                wishlistItem !== undefined
-                  ? "Added to wishlist"
-                  : "Add to wishlist"
-              }
-              onClick={() => dispatch(addToWishlist(product))}
-            >
-              <i className="pe-7s-like" />
-            </button>
-          </div> */}
-          {/* <div className="pro-details-compare">
-            <button
-              className={compareItem !== undefined ? "active" : ""}
-              disabled={compareItem !== undefined}
-              title={
-                compareItem !== undefined
-                  ? "Added to compare"
-                  : "Add to compare"
-              }
-              onClick={() => dispatch(addToCompare(product))}
-            >
-              <i className="pe-7s-shuffle" />
-            </button>
-          </div> */}
         </div>
       )}
-      {/* {product.category ? (
-        <div className="pro-details-meta">
-          <span>Categories :</span>
-          <ul>
-            {product.category.map((single, key) => {
-              return (
-                <li key={key}>
-                  <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                    {single}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ) : (
-        ""
-      )}
-      {product.tag ? (
-        <div className="pro-details-meta">
-          <span>Tags :</span>
-          <ul>
-            {product.tag.map((single, key) => {
-              return (
-                <li key={key}>
-                  <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                    {single}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ) : (
-        ""
-      )} */}
 
       <div className="pro-details-social">
         <ul>

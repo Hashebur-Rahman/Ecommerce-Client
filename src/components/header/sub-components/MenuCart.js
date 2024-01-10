@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getDiscountPrice } from "../../../helpers/product";
-import { deleteFromCart } from "../../../store/slices/cart-slice"
+import { deleteFromCart } from "../../../store/slices/cart-slice";
 
 const MenuCart = () => {
   const dispatch = useDispatch();
@@ -35,18 +35,12 @@ const MenuCart = () => {
                 <li className="single-shopping-cart" key={item.cartItemId}>
                   <div className="shopping-cart-img">
                     <Link to={process.env.PUBLIC_URL + "/product/" + item.id}>
-                      <img
-                        alt=""
-                        src={process.env.PUBLIC_URL + item.image[0]}
-                        className="img-fluid"
-                      />
+                      <img alt="" src={item.image} className="img-fluid" />
                     </Link>
                   </div>
                   <div className="shopping-cart-title">
                     <h4>
-                      <Link
-                        to={process.env.PUBLIC_URL + "/product/" + item.id}
-                      >
+                      <Link to={process.env.PUBLIC_URL + "/product/" + item.id}>
                         {" "}
                         {item.name}{" "}
                       </Link>
@@ -57,8 +51,7 @@ const MenuCart = () => {
                         ? currency.currencySymbol + finalDiscountedPrice
                         : currency.currencySymbol + finalProductPrice}
                     </span>
-                    {item.selectedProductColor &&
-                    item.selectedProductSize ? (
+                    {item.selectedProductColor && item.selectedProductSize ? (
                       <div className="cart-item-variation">
                         <span>Color: {item.selectedProductColor}</span>
                         <span>Size: {item.selectedProductSize}</span>
@@ -68,7 +61,9 @@ const MenuCart = () => {
                     )}
                   </div>
                   <div className="shopping-cart-delete">
-                    <button onClick={() => dispatch(deleteFromCart(item.cartItemId))}>
+                    <button
+                      onClick={() => dispatch(deleteFromCart(item.cartItemId))}
+                    >
                       <i className="fa fa-times-circle" />
                     </button>
                   </div>
@@ -78,10 +73,7 @@ const MenuCart = () => {
           </ul>
           <div className="shopping-cart-total">
             <h4>
-              Total :{" "}
-              <span className="shop-total">
-                {currency.currencySymbol + cartTotalPrice.toFixed(2)}
-              </span>
+              Total : <span className="shop-total">{cartTotalPrice}</span>
             </h4>
           </div>
           <div className="shopping-cart-btn btn-hover text-center">

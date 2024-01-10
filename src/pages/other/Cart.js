@@ -5,19 +5,95 @@ import SEO from "../../components/seo";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import { addToCart, decreaseQuantity, deleteFromCart, deleteAllFromCart } from "../../store/slices/cart-slice";
+import {
+  addToCart,
+  decreaseQuantity,
+  deleteFromCart,
+  deleteAllFromCart,
+} from "../../store/slices/cart-slice";
 import { cartItemStock } from "../../helpers/product";
+
+import axios from "axios";
+import DistrictSelector from "../../components/DistrictSelector";
+import { Base_Url } from "../../Config/config";
 
 const Cart = () => {
   let cartTotalPrice = 0;
-
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [divisions, setDivisions] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [selectedDivision, setSelectedDivision] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [address, setAddress] = useState("");
   const [quantityCount] = useState(1);
   const dispatch = useDispatch();
   let { pathname } = useLocation();
-  
-  const currency = useSelector((state) => state.currency);
+  const [couponCode, setCouponCode] = useState("");
+  const [couponPrice, setCouponPrice] = useState("");
   const { cartItems } = useSelector((state) => state.cart);
 
+  const handleCreateOrder = async (e) => {
+    e.preventDefault();
+
+    try {
+      const productData = {
+        names: name,
+        phone: phone,
+        address: address,
+        selectedDistrict: selectedDistrict,
+        selectedDivision: selectedDivision,
+        totalWithDelivery: cartTotalPrice,
+        deliveryCharge: 60,
+        products: cartItems,
+        subTotal: cartTotalPrice + 60,
+      };
+      // console.log(productData);
+      try {
+        const response = await axios.post(
+          // "http://localhost:5000/api/v1/order/create-order",
+          `${Base_Url}/api/createOrder`,
+          productData
+        );
+        // toast.success("Thanks For Shopping");
+
+        console.log(response.data.orderProduct);
+        // navigate(`/thanks/${response.data.orderProduct._id}`);
+      } catch (error) {
+        console.error("Error creating order:", error);
+        // toast.error("Something went wrong");
+      }
+    } catch (error) {
+      console.error("Error preparing order data:", error);
+      // toast.error("Something went wrong");
+    }
+  };
+
+  const calculateDiscount = (code) => {
+    // In a real application, you would fetch the discount amount from a server or other source
+    if (code === "nimur") {
+      return 50;
+    } else {
+      return 0;
+    }
+  };
+
+  const handleCouponSubmit = (e) => {
+    e.preventDefault();
+
+    // Assume you have a function to calculate the discount based on the coupon code
+    const discountAmount = calculateDiscount(couponCode);
+
+    // Assume you have a function to get the total price
+
+    // Calculate the discounted price
+    const newDiscountedPrice = cartTotalPrice - discountAmount;
+    setCouponPrice(newDiscountedPrice);
+    // Set the discounted price in the state
+    // cartTotalPrice(newDiscountedPrice);
+  };
+  console.log(couponPrice);
+  console.log(cartItems);
   return (
     <Fragment>
       <SEO
@@ -27,11 +103,11 @@ const Cart = () => {
 
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
-        <Breadcrumb 
+        <Breadcrumb
           pages={[
-            {label: "Home", path: process.env.PUBLIC_URL + "/" },
-            {label: "Cart", path: process.env.PUBLIC_URL + pathname }
-          ]} 
+            { label: "Home", path: process.env.PUBLIC_URL + "/" },
+            { label: "Cart", path: process.env.PUBLIC_URL + pathname },
+          ]}
         />
         <div className="cart-main-area pt-90 pb-100">
           <div className="container">
@@ -58,18 +134,12 @@ const Cart = () => {
                               cartItem.price,
                               cartItem.discount
                             );
-                            const finalProductPrice = (
-                              cartItem.price * currency.currencyRate
-                            ).toFixed(2);
-                            const finalDiscountedPrice = (
-                              discountedPrice * currency.currencyRate
-                            ).toFixed(2);
+                            const finalProductPrice = cartItem.price;
+                            const finalDiscountedPrice = discountedPrice;
 
                             discountedPrice != null
-                              ? (cartTotalPrice +=
-                                  finalDiscountedPrice * cartItem.quantity)
-                              : (cartTotalPrice +=
-                                  finalProductPrice * cartItem.quantity);
+                              ? (cartTotalPrice = finalDiscountedPrice)
+                              : (cartTotalPrice = finalProductPrice);
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">
@@ -82,10 +152,7 @@ const Cart = () => {
                                   >
                                     <img
                                       className="img-fluid"
-                                      src={
-                                        process.env.PUBLIC_URL +
-                                        cartItem.image[0]
-                                      }
+                                      src={cartItem.image}
                                       alt=""
                                     />
                                   </Link>
@@ -120,18 +187,15 @@ const Cart = () => {
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {finalProductPrice}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
+                                      {finalProductPrice}
                                     </span>
                                   )}
                                 </td>
@@ -155,20 +219,17 @@ const Cart = () => {
                                     <button
                                       className="inc qtybutton"
                                       onClick={() =>
-                                        dispatch(addToCart({
-                                          ...cartItem,
-                                          quantity: quantityCount
-                                        }))
+                                        dispatch(
+                                          addToCart({
+                                            ...cartItem,
+                                            quantity: quantityCount,
+                                          })
+                                        )
                                       }
                                       disabled={
                                         cartItem !== undefined &&
                                         cartItem.quantity &&
-                                        cartItem.quantity >=
-                                          cartItemStock(
-                                            cartItem,
-                                            cartItem.selectedProductColor,
-                                            cartItem.selectedProductSize
-                                          )
+                                        cartItem.quantity
                                       }
                                     >
                                       +
@@ -177,20 +238,16 @@ const Cart = () => {
                                 </td>
                                 <td className="product-subtotal">
                                   {discountedPrice !== null
-                                    ? currency.currencySymbol +
-                                      (
-                                        finalDiscountedPrice * cartItem.quantity
-                                      ).toFixed(2)
-                                    : currency.currencySymbol +
-                                      (
-                                        finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)}
+                                    ? finalDiscountedPrice * cartItem.quantity
+                                    : finalProductPrice * cartItem.quantity}
                                 </td>
 
                                 <td className="product-remove">
                                   <button
                                     onClick={() =>
-                                      dispatch(deleteFromCart(cartItem.cartItemId))
+                                      dispatch(
+                                        deleteFromCart(cartItem.cartItemId)
+                                      )
                                     }
                                   >
                                     <i className="fa fa-times"></i>
@@ -208,9 +265,7 @@ const Cart = () => {
                   <div className="col-lg-12">
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
-                        <Link
-                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-                        >
+                        <Link to={process.env.PUBLIC_URL + "/shop"}>
                           Continue Shopping
                         </Link>
                       </div>
@@ -228,41 +283,49 @@ const Cart = () => {
                     <div className="cart-tax">
                       <div className="title-wrap">
                         <h4 className="cart-bottom-title section-bg-gray">
-                          Estimate Shipping And Tax
+                          Your Personal Information
                         </h4>
                       </div>
                       <div className="tax-wrapper">
-                        <p>
-                          Enter your destination to get a shipping estimate.
-                        </p>
-                        <div className="tax-select-wrapper">
+                        <div>
                           <div className="tax-select">
-                            <label>* Country</label>
-                            <select className="email s-email s-wid">
-                              <option>Bangladesh</option>
-                              <option>Albania</option>
-                              <option>Åland Islands</option>
-                              <option>Afghanistan</option>
-                              <option>Belgium</option>
-                            </select>
+                            <label>*Your Name</label>
+                            <input
+                              value={name}
+                              type="text"
+                              placeholder="Write Your Name"
+                              onChange={(e) => setName(e.target.value)}
+                            />
                           </div>
                           <div className="tax-select">
-                            <label>* Region / State</label>
-                            <select className="email s-email s-wid">
-                              <option>Bangladesh</option>
-                              <option>Albania</option>
-                              <option>Åland Islands</option>
-                              <option>Afghanistan</option>
-                              <option>Belgium</option>
-                            </select>
+                            <label>*Your Phone Number</label>
+                            <input
+                              value={phone}
+                              type="text"
+                              placeholder="012345.."
+                              onChange={(e) => setPhone(e.target.value)}
+                            />
                           </div>
+                          <DistrictSelector
+                            selectedDistrict={selectedDistrict}
+                            setSelectedDistrict={setSelectedDistrict}
+                            selectedDivision={selectedDivision}
+                            districts={districts}
+                            setDistricts={setDistricts}
+                            setSelectedDivision={setSelectedDivision}
+                            divisions={divisions}
+                            setDivisions={setDivisions}
+                          />
+
                           <div className="tax-select">
-                            <label>* Zip/Postal Code</label>
-                            <input type="text" />
+                            <label>*Your Address</label>
+                            <input
+                              value={address}
+                              type="text"
+                              placeholder="Write Your Address"
+                              onChange={(e) => setAddress(e.target.value)}
+                            />
                           </div>
-                          <button className="cart-btn-2" type="submit">
-                            Get A Quote
-                          </button>
                         </div>
                       </div>
                     </div>
@@ -277,8 +340,14 @@ const Cart = () => {
                       </div>
                       <div className="discount-code">
                         <p>Enter your coupon code if you have one.</p>
-                        <form>
-                          <input type="text" required name="name" />
+                        <form onSubmit={handleCouponSubmit}>
+                          <input
+                            type="text"
+                            required
+                            value={couponCode}
+                            onChange={(e) => setCouponCode(e.target.value)}
+                            name="name"
+                          />
                           <button className="cart-btn-2" type="submit">
                             Apply Coupon
                           </button>
@@ -295,21 +364,22 @@ const Cart = () => {
                         </h4>
                       </div>
                       <h5>
-                        Total products{" "}
-                        <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
-                        </span>
+                        Total products <span> ৳{cartTotalPrice}</span>
+                      </h5>
+                      <h5>
+                        Delivery Charge
+                        <span> ৳{60}</span>
                       </h5>
 
                       <h4 className="grand-totall-title">
-                        Grand Total{" "}
-                        <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
-                        </span>
+                         Total <span> ৳{cartTotalPrice + 60}</span>
                       </h4>
-                      <Link to={process.env.PUBLIC_URL + "/checkout"}>
-                        Proceed to Checkout
-                      </Link>
+                      {couponPrice && (
+                        <h4 className="grand-totall-title">
+                           Grand Total <span> ৳{couponPrice}</span>
+                        </h4>
+                      )}
+                      <Link onClick={handleCreateOrder}>Proceed to Order</Link>
                     </div>
                   </div>
                 </div>
@@ -323,7 +393,7 @@ const Cart = () => {
                     </div>
                     <div className="item-empty-area__text">
                       No items found in cart <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop"}>
                         Shop Now
                       </Link>
                     </div>
