@@ -159,8 +159,7 @@ const Cart = () => {
                                   >
                                     {cartItem.name}
                                   </Link>
-                                  {cartItem.selectedProductColor &&
-                                  cartItem.selectedProductSize ? (
+                                  {cartItem.selectedProductSize ? (
                                     <div className="cart-item-variation">
                                       <span>
                                         Color: {cartItem.selectedProductColor}
@@ -217,11 +216,11 @@ const Cart = () => {
                                           })
                                         )
                                       }
-                                      disabled={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity &&
-                                        cartItem.quantity
-                                      }
+                                      // disabled={
+                                      //   cartItem !== undefined &&
+                                      //   cartItem.quantity &&
+                                      //   cartItem.quantity
+                                      // }
                                     >
                                       +
                                     </button>

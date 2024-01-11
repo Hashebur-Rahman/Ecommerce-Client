@@ -7,8 +7,8 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
     <div className={clsx("copyright", spaceBottomClass, colorClass)}>
       <div className="footer-logo">
         <Link to={process.env.PUBLIC_URL + "/"}>
-          {/* <img alt="" src={process.env.PUBLIC_URL + footerLogo} /> */}
-        <p className="display-6">Dokan</p>
+          <img height={70} alt="" src='/logo1.png' />
+         
         </Link>
       </div>
       <p>
