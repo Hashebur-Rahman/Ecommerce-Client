@@ -12,7 +12,7 @@ import {
   deleteAllFromCart,
 } from "../../store/slices/cart-slice";
 import { cartItemStock } from "../../helpers/product";
-
+import cogoToast from "cogo-toast";
 import axios from "axios";
 import DistrictSelector from "../../components/DistrictSelector";
 import { Base_Url } from "../../Config/config";
@@ -38,7 +38,7 @@ const Cart = () => {
 
     try {
       const productData = {
-        names: name,
+        name: name,
         phone: phone,
         address: address,
         selectedDistrict: selectedDistrict,
@@ -48,29 +48,28 @@ const Cart = () => {
         products: cartItems,
         subTotal: cartTotalPrice + 60,
       };
-      // console.log(productData);
+
       try {
         const response = await axios.post(
           // "http://localhost:5000/api/v1/order/create-order",
           `${Base_Url}/api/createOrder`,
           productData
         );
-        // toast.success("Thanks For Shopping");
+        cogoToast.success("Successfully Create Order", {
+          position: "bottom-left",
+        });
 
-        console.log(response.data.orderProduct);
+        console.log(response.data);
         // navigate(`/thanks/${response.data.orderProduct._id}`);
       } catch (error) {
         console.error("Error creating order:", error);
-        // toast.error("Something went wrong");
       }
     } catch (error) {
       console.error("Error preparing order data:", error);
-      // toast.error("Something went wrong");
     }
   };
 
   const calculateDiscount = (code) => {
-    // In a real application, you would fetch the discount amount from a server or other source
     if (code === "nimur") {
       return 50;
     } else {
@@ -80,19 +79,11 @@ const Cart = () => {
 
   const handleCouponSubmit = (e) => {
     e.preventDefault();
-
-    // Assume you have a function to calculate the discount based on the coupon code
     const discountAmount = calculateDiscount(couponCode);
-
-    // Assume you have a function to get the total price
-
-    // Calculate the discounted price
     const newDiscountedPrice = cartTotalPrice - discountAmount;
     setCouponPrice(newDiscountedPrice);
-    // Set the discounted price in the state
-    // cartTotalPrice(newDiscountedPrice);
   };
-  console.log(couponPrice);
+  // console.log(couponPrice);
   console.log(cartItems);
   return (
     <Fragment>
