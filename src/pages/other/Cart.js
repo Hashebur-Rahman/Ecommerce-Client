@@ -372,11 +372,11 @@ const Cart = () => {
                       </h5>
 
                       <h4 className="grand-totall-title">
-                         Total <span> ৳{cartTotalPrice + 60}</span>
+                        Total <span> ৳{cartTotalPrice + 60}</span>
                       </h4>
                       {couponPrice && (
                         <h4 className="grand-totall-title">
-                           Grand Total <span> ৳{couponPrice}</span>
+                          Grand Total <span> ৳{couponPrice}</span>
                         </h4>
                       )}
                       <Link onClick={handleCreateOrder}>Proceed to Order</Link>
