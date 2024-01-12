@@ -13,9 +13,9 @@ import { Base_Url } from "../../Config/config";
 
 export default function TabProduct() {
   const [product, setProduct] = useState([]);
-  const [displayLimit, setDisplayLimit] = useState(4);
+  const [displayLimit, setDisplayLimit] = useState(16);
   const navigate = useNavigate();
-  console.log(product);
+ 
   //get cat
 
   useEffect(() => {
@@ -38,10 +38,10 @@ export default function TabProduct() {
   const limitedProducts = fetchProduct.slice(0, displayLimit);
 
   const showMore = () => {
-    setDisplayLimit((prevLimit) => prevLimit + 10); // Increase the limit by 10
+    setDisplayLimit((prevLimit) => prevLimit + 16); // Increase the limit by 10
   };
 
-  console.log(fetchProduct);
+  // console.log(fetchProduct);
 
   return (
     // running pages

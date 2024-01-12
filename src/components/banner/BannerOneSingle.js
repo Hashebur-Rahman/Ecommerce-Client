@@ -2,6 +2,11 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 
+
+
+
+
+
 const BannerOneSingle = ({ data, spaceBottomClass }) => {
   return (
       <div className={clsx("single-banner", spaceBottomClass)}>

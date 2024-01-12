@@ -10,12 +10,9 @@ const HeroSliderOneSingle = ({ data }) => {
           <div className="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
             <div className="slider-content slider-animated-1">
               <h3 className="animated">{data.title}</h3>
-              <h1 className="animated">{data.subtitle}</h1>
+              <h1 className="animated">{data.productTitle}</h1>
               <div className="slider-btn btn-hover">
-                <Link
-                  className="animated"
-                  to={process.env.PUBLIC_URL + data.url}
-                >
+                <Link className="animated" to={`/category/${data.category}`}>
                   SHOP NOW
                 </Link>
               </div>
@@ -23,11 +20,7 @@ const HeroSliderOneSingle = ({ data }) => {
           </div>
           <div className="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
             <div className="slider-single-img slider-animated-1">
-              <img
-                className="animated img-fluid"
-                src={process.env.PUBLIC_URL + data.image}
-                alt=""
-              />
+              <img className="animated img-fluid" src={data.image} alt="" />
             </div>
           </div>
         </div>
@@ -37,7 +30,7 @@ const HeroSliderOneSingle = ({ data }) => {
 };
 
 HeroSliderOneSingle.propTypes = {
-  data: PropTypes.shape({})
+  data: PropTypes.shape({}),
 };
 
 export default HeroSliderOneSingle;

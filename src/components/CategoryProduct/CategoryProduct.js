@@ -22,8 +22,7 @@ const CategoryCard = React.memo(({ category, navigate }) => (
 const CategoryProduct = () => {
   const navigate = useNavigate();
 
-  const [categories, setCategories] = useState([]);
-  console.log(categories);
+  const [categories, setCategories] = useState([]); 
   //get cat
   const getCategories = async () => {
     try {

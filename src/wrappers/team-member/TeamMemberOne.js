@@ -11,7 +11,7 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
         {/* section title */}
         <SectionTitleTwo
           titleText="Team Members"
-          subTitleText="Lorem ipsum dolor sit amet conse ctetu."
+          subTitleText="Our Strong Team Members"
           positionClass="text-center"
           spaceClass="mb-60"
         />
@@ -19,10 +19,7 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
         <div className="row">
           {teamMemberData?.map((single, key) => (
             <div className="col-lg-3 col-md-6 col-sm-6" key={key}>
-              <TeamMemberOneSingle
-                data={single}
-                spaceBottomClass="mb-30"
-              />
+              <TeamMemberOneSingle data={single} spaceBottomClass="mb-30" />
             </div>
           ))}
         </div>
@@ -33,7 +30,7 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
 
 TeamMemberOne.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default TeamMemberOne;

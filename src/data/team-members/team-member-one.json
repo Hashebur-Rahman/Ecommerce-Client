@@ -2,7 +2,7 @@
   {
     "id": "1",
     "image": "/assets/img/team/team-1.jpg",
-    "fbLink": "//www.facebook.com",
+    "fbLink": "https://www.facebook.com/dev.hashebur.rahman/",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
     "name": "Mr. Hasehebur Rahman",
@@ -19,7 +19,7 @@
   },
   {
     "id": "3",
-    "image": "/assets/img/team/team-2.jpg",
+    "image": "/assets/img/team/rayhan.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
@@ -28,48 +28,47 @@
   },
   {
     "id": "4",
-    "image": "/assets/img/team/team-4.jpg",
+    "image": "/assets/img/team/alamin.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
-    "name": "Mr.John Lee",
+    "name": " Al-Amin Akond",
     "position": "Manager"
-  } ,
+  },
   {
     "id": "5",
-    "image": "/assets/img/team/team-4.jpg",
+    "image": "/assets/img/team/mamun.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
-    "name": "Mr.John Lee",
+    "name": "Mr. Mamun miya",
     "position": "Sell Manager"
-  } ,
+  },
   {
     "id": "6",
-    "image": "/assets/img/team/team-4.jpg",
+    "image": "/assets/img/team/nisan.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
-    "name": "Mr.John Lee",
+    "name": "Mr. Najmul Huda",
     "position": "Social Media Manager"
-  } ,
+  },
   {
     "id": "7",
-    "image": "/assets/img/team/team-4.jpg",
+    "image": "/assets/img/team/rakib.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
-    "name": "Mr.John Lee",
-    "position": "News Portal"
-  } 
-  ,
+    "name": "Mr. Abijar Rakib",
+    "position": "Social Media Manager"
+  },
   {
     "id": "8",
-    "image": "/assets/img/team/team-4.jpg",
+    "image": "/assets/img/team/ruposhi.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
-    "name": "Mr.John Lee",
+    "name": "Mrs. Sultana Ruposhi ",
     "position": "Accounter"
-  } 
+  }
 ]

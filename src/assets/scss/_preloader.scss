@@ -1,6 +1,6 @@
-/*--- Shohojdokan preloader ---*/
+/*--- Shohozdokan  preloader ---*/
 
-.Shohojdokan-preloader-wrapper {
+.Shohozdokan -preloader-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   z-index: 999999;
 }
 
-.Shohojdokan-preloader {
+.Shohozdokan -preloader {
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -24,7 +24,7 @@
   margin-top: -25px;
 }
 
-.Shohojdokan-preloader span {
+.Shohozdokan -preloader span {
   position: absolute;
   display: inline-block;
   width: 50px;
@@ -35,7 +35,7 @@
   animation: preloader 1.3s linear infinite;
 }
 
-.Shohojdokan-preloader span:last-child {
+.Shohozdokan -preloader span:last-child {
   animation-delay: -0.8s;
   -webkit-animation-delay: -0.8s;
 }
@@ -62,4 +62,4 @@
   }
 }
 
-/*--- end of Shohojdokan preloader ---*/
+/*--- end of Shohozdokan  preloader ---*/

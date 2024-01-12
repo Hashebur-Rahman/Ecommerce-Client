@@ -10,7 +10,7 @@ const MenuCart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 
-  console.log(cartItems);
+ 
   return (
     <div className="shopping-cart-content">
       {cartItems && cartItems.length > 0 ? (

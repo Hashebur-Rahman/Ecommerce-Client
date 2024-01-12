@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import GoogleMap from "../../components/google-map"
+import GoogleMap from "../../components/google-map";
 
 const Contact = () => {
   let { pathname } = useLocation();
@@ -12,14 +12,14 @@ const Contact = () => {
     <Fragment>
       <SEO
         titleTemplate="Contact"
-        description="Contact page of Shohojdokan react minimalist eCommerce template."
+        description="Contact page of Shohozdokan  react minimalist eCommerce template."
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb
           pages={[
             { label: "Home", path: process.env.PUBLIC_URL + "/" },
-            { label: "Contact", path: process.env.PUBLIC_URL + pathname }
+            { label: "Contact", path: process.env.PUBLIC_URL + pathname },
           ]}
         />
         <div className="contact-area pt-100 pb-100">

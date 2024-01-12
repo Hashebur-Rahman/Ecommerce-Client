@@ -77,6 +77,7 @@ const Cart = () => {
       return 0;
     }
   };
+console.log(Math.round(couponPrice+60));
 
   const handleCouponSubmit = (e) => {
     e.preventDefault();
@@ -230,9 +231,11 @@ const Cart = () => {
                                   </div>
                                 </td>
                                 <td className="product-subtotal">
-                                  {discountedPrice !== null
-                                    ? finalDiscountedPrice * cartItem.quantity
-                                    : finalProductPrice * cartItem.quantity}
+                                  {Math.round(
+                                    discountedPrice !== null
+                                      ? finalDiscountedPrice * cartItem.quantity
+                                      : finalProductPrice * cartItem.quantity
+                                  )}
                                 </td>
 
                                 <td className="product-remove">
@@ -357,7 +360,8 @@ const Cart = () => {
                         </h4>
                       </div>
                       <h5>
-                        Total products <span> ৳{cartTotalPrice}</span>
+                        Total products{" "}
+                        <span> ৳{Math.round(cartTotalPrice)}</span>
                       </h5>
                       <h5>
                         Delivery Charge
@@ -365,11 +369,12 @@ const Cart = () => {
                       </h5>
 
                       <h5 className="grand-totall-title1">
-                        Total <span> ৳{cartTotalPrice + 60}</span>
+                        Total <span> ৳{Math.round(cartTotalPrice + 60)}</span>
                       </h5>
                       {couponPrice && (
                         <h4 className="grand-totall-title">
-                          Grand Total <span> ৳{couponPrice + 60}</span>
+                          Grand Total{" "}
+                          <span> ৳{Math.round(couponPrice + 60)} </span>
                         </h4>
                       )}
                       <Link onClick={handleCreateOrder}>Proceed to Order</Link>
