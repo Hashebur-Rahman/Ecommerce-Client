@@ -47,6 +47,7 @@ const Cart = () => {
         deliveryCharge: 60,
         products: cartItems,
         subTotal: cartTotalPrice + 60,
+        couponTotal: couponPrice + 60,
       };
 
       try {
@@ -70,7 +71,7 @@ const Cart = () => {
   };
 
   const calculateDiscount = (code) => {
-    if (code === "nimur") {
+    if (code === "nimur10") {
       return 50;
     } else {
       return 0;
@@ -129,16 +130,18 @@ const Cart = () => {
                             const finalDiscountedPrice = discountedPrice;
 
                             discountedPrice != null
-                            ? (cartTotalPrice += finalDiscountedPrice * cartItem?.quantity)
-                            : (cartTotalPrice += finalProductPrice * cartItem?.quantity);
+                              ? (cartTotalPrice +=
+                                  finalDiscountedPrice * cartItem?.quantity)
+                              : (cartTotalPrice +=
+                                  finalProductPrice * cartItem?.quantity);
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
-                                      "/product/" +
-                                      cartItem.id
+                                      "/products/" +
+                                      cartItem._id
                                     }
                                   >
                                     <img
@@ -153,8 +156,8 @@ const Cart = () => {
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
-                                      "/product/" +
-                                      cartItem.id
+                                      "/products/" +
+                                      cartItem._id
                                     }
                                   >
                                     {cartItem.name}
@@ -320,7 +323,7 @@ const Cart = () => {
                       </div>
                     </div>
                   </div>
-
+                  {/* Cupon code  */}
                   <div className="col-lg-4 col-md-6">
                     <div className="discount-code-wrapper">
                       <div className="title-wrap">
@@ -361,12 +364,12 @@ const Cart = () => {
                         <span> ৳ {60}</span>
                       </h5>
 
-                      <h4 className="grand-totall-title">
+                      <h5 className="grand-totall-title1">
                         Total <span> ৳{cartTotalPrice + 60}</span>
-                      </h4>
+                      </h5>
                       {couponPrice && (
                         <h4 className="grand-totall-title">
-                          Grand Total <span> ৳{couponPrice}</span>
+                          Grand Total <span> ৳{couponPrice + 60}</span>
                         </h4>
                       )}
                       <Link onClick={handleCreateOrder}>Proceed to Order</Link>

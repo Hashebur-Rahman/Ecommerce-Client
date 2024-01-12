@@ -51,7 +51,7 @@ const ProductDescription = ({
   const compareItem = compareItems.find((item) => item.id === product.id);
 
   const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +product.price;
+  const finalProductPrice = product.price;
   const finalDiscountedPrice = +discountedPrice;
 
   // console.log(relatedProducts);

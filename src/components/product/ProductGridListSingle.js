@@ -30,15 +30,6 @@ const ProductGridListSingle = ({
         <div className="product-img">
           <Link to={process.env.PUBLIC_URL + "/products/" + product._id}>
             <img className="default-img" src={product.image} alt="" />
-            {/* {product.image.length > 1 ? (
-                <img
-                  className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
-                  alt=""
-                />
-              ) : (
-                ""
-              )} */}
           </Link>
           {product.discount || product.new ? (
             <div className="product-img-badges">
@@ -68,45 +59,13 @@ const ProductGridListSingle = ({
                 <i className="pe-7s-like" />
               </button>
             </div>
+
             <div className="pro-same-action pro-cart">
-              {product.affiliateLink ? (
-                <a
-                  href={product.affiliateLink}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {" "}
-                  Buy now{" "}
-                </a>
-              ) : product.variation && product.variation.length >= 1 ? (
-                <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
-                  Select Option
-                </Link>
-              ) : product.stock && product.stock > 0 ? (
-                <button
-                  onClick={() => dispatch(addToCart(product))}
-                  className={
-                    cartItem !== undefined && cartItem.quantity > 0
-                      ? "active"
-                      : ""
-                  }
-                  disabled={cartItem !== undefined && cartItem.quantity > 0}
-                  title={
-                    cartItem !== undefined ? "Added to cart" : "Add to cart"
-                  }
-                >
-                  {" "}
-                  <i className="pe-7s-cart"></i>{" "}
-                  {cartItem !== undefined && cartItem.quantity > 0
-                    ? "Added"
-                    : "Add to cart"}
-                </button>
-              ) : (
-                <button disabled className="active">
-                  Out of Stock
-                </button>
-              )}
+              <Link to={`${process.env.PUBLIC_URL}/products/${product._id}`}>
+                Select Option
+              </Link>
             </div>
+
             <div className="pro-same-action pro-quickview">
               <button onClick={() => setModalShow(true)} title="Quick View">
                 <i className="pe-7s-look" />
@@ -279,7 +238,6 @@ const ProductGridListSingle = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
-  
         discountedPrice={discountedPrice}
         finalProductPrice={finalProductPrice}
         finalDiscountedPrice={finalDiscountedPrice}

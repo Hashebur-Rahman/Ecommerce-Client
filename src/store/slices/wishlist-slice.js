@@ -8,7 +8,7 @@ const wishlistSlice = createSlice({
     },
     reducers: {
         addToWishlist(state, action) {
-            const isInWishlist = state.wishlistItems.findIndex(item => item.id === action.payload.id);
+            const isInWishlist = state.wishlistItems.findIndex(item => item._id === action.payload._id);
             if(isInWishlist > -1){
                 cogoToast.info("Product already in wishlist", {position: "bottom-left"});
             } else {
@@ -18,7 +18,7 @@ const wishlistSlice = createSlice({
             
         },
         deleteFromWishlist(state, action){
-            state.wishlistItems = state.wishlistItems.filter(item => item.id !== action.payload);
+            state.wishlistItems = state.wishlistItems.filter(item => item._id !== action.payload);
             cogoToast.error("Removed From Wishlist", {position: "bottom-left"});
         },
         deleteAllFromWishlist(state){

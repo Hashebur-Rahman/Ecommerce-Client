@@ -31,7 +31,7 @@ const ProductDescriptionInfo = ({
     selectedProductSize
   );
 
-  console.log(product.selectedOptions);
+  // console.log(product.selectedOptions);
   return (
     <div className="product-details-content mt-20 ml-70">
       <h2>{product.name}</h2>

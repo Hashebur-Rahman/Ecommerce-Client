@@ -6,7 +6,7 @@ import { deleteFromCart } from "../../../store/slices/cart-slice";
 
 const MenuCart = () => {
   const dispatch = useDispatch();
-
+  const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 
@@ -31,18 +31,30 @@ const MenuCart = () => {
               return (
                 <li className="single-shopping-cart" key={item.cartItemId}>
                   <div className="shopping-cart-img">
-                    <img alt="" src={item.image} className="img-fluid" />
+                    <Link
+                      to={process.env.PUBLIC_URL + "/products/" + item?._id}
+                    >
+                      <img alt="" src={item.image} className="img-fluid" />
+                    </Link>
                   </div>
                   <div className="shopping-cart-title">
-                    <h4>{item.name} </h4>
-                    <h6>Qty: {item.quantity}</h6>
-                    <span> ৳ 
+                    <h4>
+                      <Link
+                        to={process.env.PUBLIC_URL + "/products/" + item._id}
+                      >
+                        {" "}
+                        {item.name}{" "}
+                      </Link>
+                    </h4>
+                    <h6>Qty : {item.quantity}</h6>
+                    <span> ৳ : 
                       {discountedPrice !== null
                         ? finalDiscountedPrice
                         : finalProductPrice}
                     </span>
                     {item.selectedProductSize ? (
                       <div className="cart-item-variation">
+                        {/* <span>Color: {item.selectedProductColor}</span> */}
                         <span>Size: {item.selectedProductSize}</span>
                       </div>
                     ) : (
@@ -62,17 +74,14 @@ const MenuCart = () => {
           </ul>
           <div className="shopping-cart-total">
             <h4>
-              Total : <span className="shop-total"> ৳ {cartTotalPrice}</span>
+              Total : <span className="shop-total"> ৳ : {cartTotalPrice}</span>
             </h4>
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
             <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
               view cart
             </Link>
-            <Link
-              className="default-btn"
-              to={process.env.PUBLIC_URL + "/checkout"}
-            >
+            <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
               checkout
             </Link>
           </div>

@@ -36,7 +36,7 @@ const IconGroup = ({ iconWhiteClass }) => {
       </div>
 
 
-
+{/* 
       <div className="same-style header-compare">
         <Link to={process.env.PUBLIC_URL + "/compare"}>
           <i className="pe-7s-shuffle" />
@@ -44,7 +44,7 @@ const IconGroup = ({ iconWhiteClass }) => {
             {compareItems && compareItems.length ? compareItems.length : 0}
           </span>
         </Link>
-      </div>
+      </div> */}
 
       <div className="same-style header-wishlist">
         <Link to={process.env.PUBLIC_URL + "/wishlist"}>

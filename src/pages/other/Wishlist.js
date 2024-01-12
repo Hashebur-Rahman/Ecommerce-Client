@@ -6,16 +6,18 @@ import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import { addToCart } from "../../store/slices/cart-slice";
-import { deleteFromWishlist, deleteAllFromWishlist } from "../../store/slices/wishlist-slice"
+import {
+  deleteFromWishlist,
+  deleteAllFromWishlist,
+} from "../../store/slices/wishlist-slice";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
   let { pathname } = useLocation();
-  
+
   const currency = useSelector((state) => state.currency);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { cartItems } = useSelector((state) => state.cart);
-  
 
   return (
     <Fragment>
@@ -25,11 +27,11 @@ const Wishlist = () => {
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
-        <Breadcrumb 
+        <Breadcrumb
           pages={[
-            {label: "Home", path: process.env.PUBLIC_URL + "/" },
-            {label: "Wishlist", path: process.env.PUBLIC_URL + pathname }
-          ]} 
+            { label: "Home", path: process.env.PUBLIC_URL + "/" },
+            { label: "Wishlist", path: process.env.PUBLIC_URL + pathname },
+          ]}
         />
         <div className="cart-main-area pt-90 pb-100">
           <div className="container">
@@ -55,14 +57,12 @@ const Wishlist = () => {
                               wishlistItem.price,
                               wishlistItem.discount
                             );
-                            const finalProductPrice = (
-                              wishlistItem.price * currency.currencyRate
-                            ).toFixed(2);
+                            const finalProductPrice = wishlistItem.price;
                             const finalDiscountedPrice = (
                               discountedPrice * currency.currencyRate
                             ).toFixed(2);
                             const cartItem = cartItems.find(
-                              item => item.id === wishlistItem.id
+                              (item) => item.id === wishlistItem.id
                             );
                             return (
                               <tr key={key}>
@@ -70,16 +70,13 @@ const Wishlist = () => {
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
-                                      "/product/" +
-                                      wishlistItem.id
+                                      "/products/" +
+                                      wishlistItem._id
                                     }
                                   >
                                     <img
                                       className="img-fluid"
-                                      src={
-                                        process.env.PUBLIC_URL +
-                                        wishlistItem.image[0]
-                                      }
+                                      src={wishlistItem.image}
                                       alt=""
                                     />
                                   </Link>
@@ -89,8 +86,8 @@ const Wishlist = () => {
                                   <Link
                                     to={
                                       process.env.PUBLIC_URL +
-                                      "/product/" +
-                                      wishlistItem.id
+                                      "/products/" +
+                                      wishlistItem._id
                                     }
                                   >
                                     {wishlistItem.name}
@@ -118,24 +115,7 @@ const Wishlist = () => {
                                 </td>
 
                                 <td className="product-wishlist-cart">
-                                  {wishlistItem.affiliateLink ? (
-                                    <a
-                                      href={wishlistItem.affiliateLink}
-                                      rel="noopener noreferrer"
-                                      target="_blank"
-                                    >
-                                      {" "}
-                                      Buy now{" "}
-                                    </a>
-                                  ) : wishlistItem.variation &&
-                                    wishlistItem.variation.length >= 1 ? (
-                                    <Link
-                                      to={`${process.env.PUBLIC_URL}/product/${wishlistItem.id}`}
-                                    >
-                                      Select option
-                                    </Link>
-                                  ) : wishlistItem.stock &&
-                                    wishlistItem.stock > 0 ? (
+                                  {
                                     <button
                                       onClick={() =>
                                         dispatch(addToCart(wishlistItem))
@@ -145,10 +125,6 @@ const Wishlist = () => {
                                         cartItem.quantity > 0
                                           ? "active"
                                           : ""
-                                      }
-                                      disabled={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity > 0
                                       }
                                       title={
                                         wishlistItem !== undefined
@@ -161,17 +137,15 @@ const Wishlist = () => {
                                         ? "Added"
                                         : "Add to cart"}
                                     </button>
-                                  ) : (
-                                    <button disabled className="active">
-                                      Out of stock
-                                    </button>
-                                  )}
+                                  }
                                 </td>
 
                                 <td className="product-remove">
                                   <button
                                     onClick={() =>
-                                      dispatch(deleteFromWishlist(wishlistItem.id))
+                                      dispatch(
+                                        deleteFromWishlist(wishlistItem.id)
+                                      )
                                     }
                                   >
                                     <i className="fa fa-times"></i>
@@ -197,7 +171,9 @@ const Wishlist = () => {
                         </Link>
                       </div>
                       <div className="cart-clear">
-                        <button onClick={() => dispatch(deleteAllFromWishlist())}>
+                        <button
+                          onClick={() => dispatch(deleteAllFromWishlist())}
+                        >
                           Clear Wishlist
                         </button>
                       </div>

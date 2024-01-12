@@ -32,7 +32,6 @@ export default function TabProduct() {
     getAllProduct();
   }, []);
 
-
   const fetchProduct = product.filter((item) => item.sellOption === "bestSell");
 
   // Apply a limit (e.g., limit to the first 5 items)
@@ -81,6 +80,7 @@ export default function TabProduct() {
                         ""
                       )}
                     </div>
+
                     <div className="product-content text-center">
                       <h3>
                         <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
@@ -97,9 +97,11 @@ export default function TabProduct() {
                       <div className="product-price">
                         {p.price !== null ? (
                           <Fragment>
-                            <span>৳ {(p.price)}</span>
+                            <span>
+                              ৳ {p.price - (p.price / 100) * p.discount}
+                            </span>
 
-                            <span className="old">৳ {p.price+p.discount*p.discount}</span>
+                            <span className="old">৳ {p.price}</span>
                           </Fragment>
                         ) : (
                           <span>৳{p.price} </span>

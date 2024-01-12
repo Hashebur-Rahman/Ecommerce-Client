@@ -327,12 +327,12 @@ h3.cart-page-title {
           cursor: pointer;
 
           color: #242424;
-//background: #fff url("../../assets/img/icon-img/cart.png") no-repeat scroll right 18px center;
+          //background: #fff url("../../assets/img/icon-img/cart.png") no-repeat scroll right 18px center;
           border: 1px solid #ebebeb;
           box-shadow: none;
 
           -webkit-appearance: none;
-             -moz-appearance: none;
+          -moz-appearance: none;
         }
         input {
           height: 40px;
@@ -503,6 +503,17 @@ h3.cart-page-title {
     margin: 0 0 25px;
 
     color: $theme-color;
+    span {
+      float: right;
+    }
+  }
+  h5.grand-totall-title1 {
+    font-size: 18px;
+    font-weight: 500;
+
+    margin: 0 0 25px;
+
+    color: #f127c5;
     span {
       float: right;
     }
