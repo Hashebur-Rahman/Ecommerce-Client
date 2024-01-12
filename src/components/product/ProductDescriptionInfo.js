@@ -7,12 +7,10 @@ import Rating from "./sub-components/ProductRating";
 import { addToCart } from "../../store/slices/cart-slice";
 import { addToWishlist } from "../../store/slices/wishlist-slice";
 import { addToCompare } from "../../store/slices/compare-slice";
-import SizeSelector from "../SizeSelecror/SizeSelector";
 
 const ProductDescriptionInfo = ({
   product,
   discountedPrice,
-
   finalDiscountedPrice,
   finalProductPrice,
   cartItems,
@@ -20,11 +18,6 @@ const ProductDescriptionInfo = ({
   compareItem,
 }) => {
   const dispatch = useDispatch();
-  const [selectedSize, setSelectedSize] = useState("");
-
-  const [selectedProductColor, setSelectedProductColor] = useState(
-    product.variation ? product.variation[0].color : ""
-  );
   const [selectedProductSize, setSelectedProductSize] = useState(
     product.variation ? product.variation[0].size[0].name : ""
   );
@@ -34,13 +27,9 @@ const ProductDescriptionInfo = ({
   const productCartQty = getProductCartQuantity(
     cartItems,
     product,
-    selectedProductColor,
+
     selectedProductSize
   );
-
-  const handleSizeChange = (size) => {
-    setSelectedSize(size);
-  };
 
   console.log(product.selectedOptions);
   return (
@@ -97,68 +86,59 @@ const ProductDescriptionInfo = ({
           ))}
       </div>
 
-
-
-       
-       
-        <div className="pro-details-quality">
-          <div className="cart-plus-minus">
+      <div className="pro-details-quality">
+        <div className="cart-plus-minus">
+          <button
+            onClick={() =>
+              setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
+            }
+            className="dec qtybutton"
+          >
+            -
+          </button>
+          <input
+            className="cart-plus-minus-box"
+            type="text"
+            value={quantityCount}
+            readOnly
+          />
+          <button
+            onClick={() =>
+              setQuantityCount(
+                quantityCount - productCartQty
+                  ? quantityCount + 1
+                  : quantityCount
+              )
+            }
+            className="inc qtybutton"
+          >
+            +
+          </button>
+        </div>
+        <div className="pro-details-cart btn-hover">
+          {
             <button
               onClick={() =>
-                setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
-              }
-              className="dec qtybutton"
-            >
-              -
-            </button>
-            <input
-              className="cart-plus-minus-box"
-              type="text"
-              value={quantityCount}
-              readOnly
-            />
-            <button
-              onClick={() =>
-                setQuantityCount(
-                  quantityCount  - productCartQty
-                    ? quantityCount + 1
-                    : quantityCount
+                dispatch(
+                  addToCart({
+                    ...product,
+                    quantity: quantityCount,
+                    selectedProductSize: selectedProductSize
+                      ? selectedProductSize
+                      : product.selectedProductSize
+                      ? product.selectedProductSize
+                      : null,
+                  })
                 )
               }
-              className="inc qtybutton"
+              disabled={productCartQty > 0}
             >
-              +
+              {" "}
+              Add To Cart{" "}
             </button>
-          </div>
-          <div className="pro-details-cart btn-hover">
-            {
-              <button
-                onClick={() =>
-                  dispatch(
-                    addToCart({
-                      ...product,
-                      quantity: quantityCount,
-                    
-                      selectedProductSize: selectedProductSize
-                        ? selectedProductSize
-                        : product.selectedProductSize
-                        ? product.selectedProductSize
-                        : null,
-                    })
-                  )
-                }
-                disabled={productCartQty}
-              >
-                {" "}
-                Add To Cart{" "}
-              </button>
-            }
-          </div>
+          }
         </div>
-     
-
-
-
+      </div>
 
       <div className="pro-details-social">
         <ul>

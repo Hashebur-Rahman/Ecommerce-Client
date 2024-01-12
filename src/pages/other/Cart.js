@@ -129,8 +129,8 @@ const Cart = () => {
                             const finalDiscountedPrice = discountedPrice;
 
                             discountedPrice != null
-                              ? (cartTotalPrice = finalDiscountedPrice)
-                              : (cartTotalPrice = finalProductPrice);
+                            ? (cartTotalPrice += finalDiscountedPrice * cartItem?.quantity)
+                            : (cartTotalPrice += finalProductPrice * cartItem?.quantity);
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">
@@ -358,7 +358,7 @@ const Cart = () => {
                       </h5>
                       <h5>
                         Delivery Charge
-                        <span> ৳{60}</span>
+                        <span> ৳ {60}</span>
                       </h5>
 
                       <h4 className="grand-totall-title">
