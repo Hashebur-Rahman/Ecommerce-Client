@@ -35,7 +35,7 @@ const Contact = () => {
                       <i className="fa fa-phone" />
                     </div>
                     <div className="contact-info-dec">
-                      <p>+8801777441366</p>
+                      <p>+8801602742861</p>
                       <p>+8801522101038</p>
                     </div>
                   </div>
@@ -46,12 +46,12 @@ const Contact = () => {
                     <div className="contact-info-dec">
                       <p>
                         <a href="mailto:info@programming-agency.com">
-                          info@programming-agency.com
+                          support@shohojdokan.com
                         </a>
                       </p>
                       <p>
                         <a href="https://www.programming-agency.com/">
-                          https://www.programming-agency.com
+                          https://www.shohojdokan.com/
                         </a>
                       </p>
                     </div>
@@ -69,7 +69,7 @@ const Contact = () => {
                     <h3>Follow Us</h3>
                     <ul>
                       <li>
-                        <a href="//facebook.com">
+                        <a href="https://www.facebook.com/profile.php?id=61555547074882">
                           <i className="fa fa-facebook" />
                         </a>
                       </li>
@@ -79,15 +79,11 @@ const Contact = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="//thumblr.com">
+                        <a href="https://www.tiktok.com/@shohojdokan?lang=en">
                           <i className="fa fa-tumblr" />
                         </a>
                       </li>
-                      <li>
-                        <a href="//vimeo.com">
-                          <i className="fa fa-vimeo" />
-                        </a>
-                      </li>
+
                       <li>
                         <a href="//twitter.com">
                           <i className="fa fa-twitter" />
