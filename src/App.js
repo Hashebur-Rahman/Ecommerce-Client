@@ -18,6 +18,7 @@ const ProductDescription = lazy(() =>
 const ShowCategortyProduct = lazy(() =>
   import("./components/CategoryProduct/ShowCategortyProduct")
 );
+const Thanks = lazy(() => import("./pages/Thanks/Thanks"));
 
 // other pages
 const About = lazy(() => import("./pages/other/About"));
@@ -29,6 +30,7 @@ const Cart = lazy(() => import("./pages/other/Cart"));
 const Wishlist = lazy(() => import("./pages/other/Wishlist"));
 const Compare = lazy(() => import("./pages/other/Compare"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
+
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
@@ -99,6 +101,10 @@ const App = () => {
             <Route
               path={process.env.PUBLIC_URL + "/wishlist"}
               element={<Wishlist />}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/thanks/:id"}
+              element={<Thanks />}
             />
             <Route
               path={process.env.PUBLIC_URL + "/compare"}

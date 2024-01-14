@@ -6,7 +6,9 @@ import { getProductCartQuantity } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import { addToCart } from "../../store/slices/cart-slice";
 import { addToWishlist } from "../../store/slices/wishlist-slice";
-import { addToCompare } from "../../store/slices/compare-slice";
+import cogoToast from "cogo-toast";
+
+import { useNavigate } from "react-router-dom";
 
 const ProductDescriptionInfo = ({
   product,
@@ -30,6 +32,31 @@ const ProductDescriptionInfo = ({
 
     selectedProductSize
   );
+  const navigate = useNavigate();
+
+  const handleSizeChange = (size) => {
+    setSelectedProductSize(size);
+  };
+
+  const handleBuyNowClick = () => {
+    if (!selectedProductSize) {
+      cogoToast.error("Please Select Size");
+      return;
+    }
+    dispatch(
+      addToCart({
+        ...product,
+        quantity: quantityCount,
+        selectedProductSize: selectedProductSize
+          ? selectedProductSize
+          : product.selectedProductSize
+          ? product.selectedProductSize
+          : null,
+      })
+    );
+
+    navigate("/cart");
+  };
 
   // console.log(product.selectedOptions);
   return (
@@ -57,18 +84,7 @@ const ProductDescriptionInfo = ({
       <div className="pro-details-list">
         <p>{product.shortDescription}</p>
       </div>
-
-      {/* <div className=" ">
-        <p className="mb-0">Size :</p>
-        {product.selectedOptions > 0 && (
-          <SizeSelector
-            sizes={product.selectedOptions}
-            selectedSize={selectedSize}
-            onSizeChange={handleSizeChange}
-          />
-        )}  
-      </div> */}
-
+      size :
       <div className="pro-details-size-content">
         {product.selectedOptions &&
           product.selectedOptions.map((singleSize, key) => (
@@ -81,11 +97,11 @@ const ProductDescriptionInfo = ({
                   setSelectedProductSize(singleSize);
                 }}
               />
+
               <span className="size-name">{singleSize}</span>
             </label>
           ))}
       </div>
-
       <div className="pro-details-quality">
         <div className="cart-plus-minus">
           <button
@@ -115,6 +131,10 @@ const ProductDescriptionInfo = ({
             +
           </button>
         </div>
+
+        <div className="pro-details-cart1 btn-hover">
+          {<button onClick={handleBuyNowClick}>Buy Now</button>}
+        </div>
         <div className="pro-details-cart btn-hover">
           {
             <button
@@ -139,19 +159,14 @@ const ProductDescriptionInfo = ({
           }
         </div>
       </div>
-
       <div className="pro-details-social">
         <ul>
           <li>
-            <a href="//facebook.com">
+            <a href="https://www.facebook.com/profile.php?id=61555547074882">
               <i className="fa fa-facebook" />
             </a>
           </li>
-          <li>
-            <a href="//dribbble.com">
-              <i className="fa fa-dribbble" />
-            </a>
-          </li>
+          
           <li>
             <a href="//pinterest.com">
               <i className="fa fa-pinterest-p" />

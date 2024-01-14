@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import FooterCopyright from "../../components/footer/FooterCopyright";
 import FooterNewsletter from "../../components/footer/FooterNewsletter";
 
-
 const FooterOne = ({
   backgroundColorClass,
   spaceTopClass,
@@ -13,10 +12,20 @@ const FooterOne = ({
   spaceRightClass,
   containerClass,
   extraFooterClass,
-  sideMenu
+  sideMenu,
 }) => {
   return (
-    <footer className={clsx("footer-area", backgroundColorClass, spaceTopClass, spaceBottomClass, extraFooterClass, spaceLeftClass, spaceRightClass )}>
+    <footer
+      className={clsx(
+        "footer-area",
+        backgroundColorClass,
+        spaceTopClass,
+        spaceBottomClass,
+        extraFooterClass,
+        spaceLeftClass,
+        spaceRightClass
+      )}
+    >
       <div className={`${containerClass ? containerClass : "container"}`}>
         <div className="row">
           <div
@@ -117,7 +126,7 @@ const FooterOne = ({
                 <ul>
                   <li>
                     <a
-                      href="https://www.facebook.com/programming.agency23"
+                      href="https://www.facebook.com/profile.php?id=61555547074882"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -126,7 +135,7 @@ const FooterOne = ({
                   </li>
                   <li>
                     <a
-                      href="https://twitter.com/Programm_agency"
+                      href="https://www.facebook.com/profile.php?id=61555318182865"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -135,7 +144,7 @@ const FooterOne = ({
                   </li>
                   <li>
                     <a
-                      href="https://www.instagram.com/programming_agency"
+                      href="https://www.instagram.com/shohojdokan/?next=%2F"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -143,11 +152,7 @@ const FooterOne = ({
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="https://www.youtube.com/@ProgrammingAgency"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="/" target="_blank" rel="noopener noreferrer">
                       Youtube
                     </a>
                   </li>
@@ -181,7 +186,7 @@ FooterOne.propTypes = {
   spaceBottomClass: PropTypes.string,
   spaceTopClass: PropTypes.string,
   spaceLeftClass: PropTypes.string,
-  spaceRightClass: PropTypes.string
+  spaceRightClass: PropTypes.string,
 };
 
 export default FooterOne;

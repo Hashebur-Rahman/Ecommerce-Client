@@ -11,6 +11,7 @@ import {
   deleteFromCart,
   deleteAllFromCart,
 } from "../../store/slices/cart-slice";
+import { useNavigate } from "react-router-dom";
 import { cartItemStock } from "../../helpers/product";
 import cogoToast from "cogo-toast";
 import axios from "axios";
@@ -32,6 +33,8 @@ const Cart = () => {
   const [couponCode, setCouponCode] = useState("");
   const [couponPrice, setCouponPrice] = useState("");
   const { cartItems } = useSelector((state) => state.cart);
+
+  const navigate = useNavigate();
 
   const handleCreateOrder = async (e) => {
     e.preventDefault();
@@ -56,14 +59,15 @@ const Cart = () => {
           `${Base_Url}/api/createOrder`,
           productData
         );
-        cogoToast.success("Successfully Create Order", {
-          position: "bottom-left",
-        });
+        console.log(response.data.orders._id);
+        navigate(`/thanks/${response.data.orders._id}`);
+
+        cogoToast.success("Successfully Create Order", {});
 
         console.log(response.data);
         // navigate(`/thanks/${response.data.orderProduct._id}`);
       } catch (error) {
-        console.error("Error creating order:", error);
+        cogoToast.error("Error creating order:", error);
       }
     } catch (error) {
       console.error("Error preparing order data:", error);
@@ -71,13 +75,13 @@ const Cart = () => {
   };
 
   const calculateDiscount = (code) => {
-    if (code === "nimur10") {
+    if (code === "shohojdokan50") {
       return 50;
     } else {
       return 0;
     }
   };
-console.log(Math.round(couponPrice+60));
+  console.log(Math.round(couponPrice + 60));
 
   const handleCouponSubmit = (e) => {
     e.preventDefault();
@@ -102,7 +106,7 @@ console.log(Math.round(couponPrice+60));
             { label: "Cart", path: process.env.PUBLIC_URL + pathname },
           ]}
         />
-        <div className="cart-main-area pt-90 pb-100">
+        <div className="cart-main-area">
           <div className="container">
             {cartItems && cartItems.length >= 1 ? (
               <Fragment>
@@ -165,9 +169,9 @@ console.log(Math.round(couponPrice+60));
                                   </Link>
                                   {cartItem.selectedProductSize ? (
                                     <div className="cart-item-variation">
-                                      <span>
+                                      {/* <span>
                                         Color: {cartItem.selectedProductColor}
-                                      </span>
+                                      </span> */}
                                       <span>
                                         Size: {cartItem.selectedProductSize}
                                       </span>
@@ -257,7 +261,7 @@ console.log(Math.round(couponPrice+60));
                     </div>
                   </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                   <div className="col-lg-12">
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
@@ -272,7 +276,7 @@ console.log(Math.round(couponPrice+60));
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="row">
                   <div className="col-lg-4 col-md-6">

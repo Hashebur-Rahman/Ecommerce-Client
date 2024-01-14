@@ -6,7 +6,7 @@ const Logo = ({ imageUrl, logoClass }) => {
   return (
     <div className={clsx(logoClass)}>
       <Link to={process.env.PUBLIC_URL + "/"}>
-        <img height={50} alt="" src="/logo2.png" />
+        <img height={50} alt="" src="/logoFinal.png" />
         {/* <p className="display-6 fw-bold">Dokan</p> */}
 
         {/* Shohozdokan logo here  */}
