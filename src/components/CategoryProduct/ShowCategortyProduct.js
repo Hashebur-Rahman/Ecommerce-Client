@@ -108,9 +108,9 @@ export default function ShowCategortyProduct({
                         <div className="product-content text-center">
                           <h3>
                             <Link
-                              to={process.env.PUBLIC_URL + "/product/" + p.id}
+                              to={process.env.PUBLIC_URL + "/products/" + p._id}
                             >
-                              {p.name}
+                            {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
                             </Link>
                           </h3>
                           {p.rating && p.rating > 0 ? (
@@ -124,10 +124,13 @@ export default function ShowCategortyProduct({
                             {p.price !== null ? (
                               <Fragment>
                                 <span>
-                                  ৳ {(p.price / p.discount).toFixed(2)}
+                                  ৳{" "}
+                                  {Math.round(
+                                    p.price - (p.price / 100) * p.discount
+                                  )}
                                 </span>
 
-                                <span className="old">৳ {p.discount}</span>
+                                <span className="old">৳ {p.price}</span>
                               </Fragment>
                             ) : (
                               <span>৳{p.price} </span>

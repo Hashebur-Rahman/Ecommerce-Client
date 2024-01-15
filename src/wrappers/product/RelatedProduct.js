@@ -82,9 +82,9 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
                   <div className="product-price">
                     {p.price !== null ? (
                       <Fragment>
-                        <span>৳ {(p.price / p.discount).toFixed(2)}</span>
+                        {Math.round(p.price - (p.price / 100) * p.discount)}
 
-                        <span className="old">৳ {p.discount}</span>
+                        <span className="old">৳ {p.price}</span>
                       </Fragment>
                     ) : (
                       <span>৳{p.price} </span>

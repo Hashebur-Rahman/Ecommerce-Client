@@ -84,7 +84,7 @@ export default function TabProduct() {
                     <div className="product-content text-center">
                       <h3 >
                         <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
-                          {p.name}
+                        {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
                         </Link>
                       </h3>
                       {p.rating && p.rating > 0 ? (

@@ -65,8 +65,8 @@ const ProductDescriptionInfo = ({
       <div className="product-details-price">
         {discountedPrice !== null ? (
           <Fragment>
-            <span>{finalDiscountedPrice}</span>{" "}
-            <span className="old">{finalProductPrice}</span>
+            <span>{Math.round(finalDiscountedPrice)}</span>{" "}
+            <span className="old">{Math.round(finalProductPrice)}</span>
           </Fragment>
         ) : (
           <span>{finalProductPrice} </span>

@@ -185,10 +185,10 @@ const Cart = () => {
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {finalProductPrice}
+                                        {Math.round(finalProductPrice)}
                                       </span>
                                       <span className="amount">
-                                        {finalDiscountedPrice}
+                                        {Math.round(finalDiscountedPrice)}
                                       </span>
                                     </Fragment>
                                   ) : (
@@ -375,13 +375,15 @@ const Cart = () => {
                       <h5 className="grand-totall-title1">
                         Total <span> ৳{Math.round(cartTotalPrice + 60)}</span>
                       </h5>
-                      <h5 className="grand-totall-title1">
-                        Coupon Discount{" "}
-                        <span>
-                          {" "}
-                          ৳ {Math.round(cartTotalPrice - couponPrice)}
-                        </span>
-                      </h5>
+                      {couponPrice && (
+                        <h5 className="grand-totall-title1">
+                          Coupon Discount{" "}
+                          <span>
+                            {" "}
+                            ৳ {Math.round(cartTotalPrice - couponPrice)}
+                          </span>
+                        </h5>
+                      )}
                       {couponPrice && (
                         <h4 className="grand-totall-title">
                           Grand Total{" "}

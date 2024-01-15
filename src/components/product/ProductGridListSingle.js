@@ -75,8 +75,8 @@ const ProductGridListSingle = ({
         </div>
         <div className="product-content text-center">
           <h3>
-            <Link to={process.env.PUBLIC_URL + "/product/" + product._id}>
-              {product.name}
+            <Link to={process.env.PUBLIC_URL + "/products/" + product._id}>
+              {product.name.slice(0, 20)} {product.name.length > 20 ? ".." : ""}
             </Link>
           </h3>
           {product.rating && product.rating > 0 ? (
@@ -89,11 +89,11 @@ const ProductGridListSingle = ({
           <div className="product-price">
             {discountedPrice !== null ? (
               <Fragment>
-                <span>৳ {finalDiscountedPrice}</span>{" "}
-                <span className="old">৳ {finalProductPrice}</span>
+                <span>৳ {Math.round(finalDiscountedPrice)}</span>{" "}
+                <span className="old">৳ {Math.round(finalProductPrice)}</span>
               </Fragment>
             ) : (
-              <span>৳ {finalProductPrice} </span>
+              <span>৳ {Math.round(finalProductPrice)} </span>
             )}
           </div>
         </div>
