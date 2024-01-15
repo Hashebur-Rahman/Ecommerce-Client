@@ -15,7 +15,7 @@ export default function TabProduct() {
   const [product, setProduct] = useState([]);
   const [displayLimit, setDisplayLimit] = useState(16);
   const navigate = useNavigate();
- 
+
   //get cat
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export default function TabProduct() {
                     </div>
 
                     <div className="product-content text-center">
-                      <h3>
+                      <h3 >
                         <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
                           {p.name}
                         </Link>
@@ -98,7 +98,10 @@ export default function TabProduct() {
                         {p.price !== null ? (
                           <Fragment>
                             <span>
-                              ৳ {p.price - (p.price / 100) * p.discount}
+                              ৳{" "}
+                              {Math.round(
+                                p.price - (p.price / 100) * p.discount
+                              )}
                             </span>
 
                             <span className="old">৳ {p.price}</span>

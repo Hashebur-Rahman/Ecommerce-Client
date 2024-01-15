@@ -75,8 +75,8 @@ const Cart = () => {
   };
 
   const calculateDiscount = (code) => {
-    if (code === "shohojdokan50") {
-      return 50;
+    if (code === "shohojdokan40") {
+      return 40;
     } else {
       return 0;
     }
@@ -278,7 +278,7 @@ const Cart = () => {
                   </div>
                 </div> */}
 
-                <div className="row">
+                <div className="row mt-4">
                   <div className="col-lg-4 col-md-6">
                     <div className="cart-tax">
                       <div className="title-wrap">
@@ -374,6 +374,13 @@ const Cart = () => {
 
                       <h5 className="grand-totall-title1">
                         Total <span> ৳{Math.round(cartTotalPrice + 60)}</span>
+                      </h5>
+                      <h5 className="grand-totall-title1">
+                        Coupon Discount{" "}
+                        <span>
+                          {" "}
+                          ৳ {Math.round(cartTotalPrice - couponPrice)}
+                        </span>
                       </h5>
                       {couponPrice && (
                         <h4 className="grand-totall-title">
