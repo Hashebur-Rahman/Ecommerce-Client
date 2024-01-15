@@ -31,6 +31,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   let { pathname } = useLocation();
   const [couponCode, setCouponCode] = useState("");
+  const [couponDiscount, setcouponDiscount] = useState("");
   const [couponPrice, setCouponPrice] = useState("");
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -47,10 +48,10 @@ const Cart = () => {
         selectedDistrict: selectedDistrict,
         selectedDivision: selectedDivision,
         totalWithDelivery: cartTotalPrice,
-        deliveryCharge: 60,
+        deliveryCharge: deliveryCharge,
         products: cartItems,
-        subTotal: cartTotalPrice + 60,
-        couponTotal: couponPrice + 60,
+        subTotal: cartTotalPrice + deliveryCharge,
+        couponTotal: couponDiscount,
       };
 
       try {
@@ -81,11 +82,16 @@ const Cart = () => {
       return 0;
     }
   };
-  console.log(Math.round(couponPrice + 60));
+
+  const deliveryCharge = selectedDistrict.toLowerCase() === "kurigram" ? 0 : 60;
+
+  // console.log(deliveryCharge, selectedDistrict);
+  // console.log(Math.round(couponPrice + 60));
 
   const handleCouponSubmit = (e) => {
     e.preventDefault();
     const discountAmount = calculateDiscount(couponCode);
+    setcouponDiscount(discountAmount);
     const newDiscountedPrice = cartTotalPrice - discountAmount;
     setCouponPrice(newDiscountedPrice);
   };
@@ -369,11 +375,11 @@ const Cart = () => {
                       </h5>
                       <h5>
                         Delivery Charge
-                        <span> ৳ {60}</span>
+                        <span> ৳{deliveryCharge}</span>
                       </h5>
 
                       <h5 className="grand-totall-title1">
-                        Total <span> ৳{Math.round(cartTotalPrice + 60)}</span>
+                        Total <span> ৳{Math.round(cartTotalPrice + deliveryCharge)}</span>
                       </h5>
                       {couponPrice && (
                         <h5 className="grand-totall-title1">
@@ -387,7 +393,7 @@ const Cart = () => {
                       {couponPrice && (
                         <h4 className="grand-totall-title">
                           Grand Total{" "}
-                          <span> ৳{Math.round(couponPrice + 60)} </span>
+                          <span> ৳{Math.round(couponPrice + deliveryCharge)} </span>
                         </h4>
                       )}
                       <Link onClick={handleCreateOrder}>Proceed to Order</Link>
