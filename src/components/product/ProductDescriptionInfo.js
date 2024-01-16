@@ -85,7 +85,7 @@ const ProductDescriptionInfo = ({
         <p>{product.shortDescription}</p>
       </div>
       size :
-      <div className="pro-details-size-content">
+      <div className="pro-details-size-content d-flex gap-3">
         {product.selectedOptions &&
           product.selectedOptions.map((singleSize, key) => (
             <label className={`pro-details-size-content--single`} key={key}>
@@ -166,7 +166,7 @@ const ProductDescriptionInfo = ({
               <i className="fa fa-facebook" />
             </a>
           </li>
-          
+
           <li>
             <a href="//pinterest.com">
               <i className="fa fa-pinterest-p" />

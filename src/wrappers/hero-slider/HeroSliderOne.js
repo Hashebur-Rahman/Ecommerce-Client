@@ -5,6 +5,7 @@ import HeroSliderOneSingle from "../../components/hero-slider/HeroSliderOneSingl
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Base_Url } from "../../Config/config.js";
+import Spinner from "../../components/Spinner/Spinner.jsx";
 
 const params = {
   effect: "fade",
@@ -19,6 +20,7 @@ const params = {
 
 const HeroSliderOne = () => {
   const [heroSliderData, setHeroSliderData] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getAllProduct = async () => {
@@ -26,6 +28,7 @@ const HeroSliderOne = () => {
         const { data } = await axios.get(`${Base_Url}/api/getBanner`);
         // console.log(data);
         setHeroSliderData(data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -35,18 +38,24 @@ const HeroSliderOne = () => {
   }, []);
 
   return (
-    <div className="slider-area">
-      <div className="slider-active nav-style-1">
-        {heroSliderData && (
-          <Swiper options={params}>
-            {heroSliderData.map((single, key) => (
-              <SwiperSlide key={key}>
-                <HeroSliderOneSingle data={single} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
-      </div>
+    <div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="slider-area">
+          <div className="slider-active nav-style-1">
+            {heroSliderData && (
+              <Swiper options={params}>
+                {heroSliderData.map((single, key) => (
+                  <SwiperSlide key={key}>
+                    <HeroSliderOneSingle data={single} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -10,7 +10,8 @@ import ShopSidebar from "../../wrappers/product/ShopSidebar";
 import ShopTopbar from "../../wrappers/product/ShopTopbar";
 import ShopProducts from "../../wrappers/product/ShopProducts";
 import { Base_Url } from "../../Config/config";
-import axios  from "axios";
+import axios from "axios";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Shop = () => {
   const [layout, setLayout] = useState("grid three-column");
@@ -23,6 +24,7 @@ const Shop = () => {
   const [currentData, setCurrentData] = useState([]);
   const [products, setProduct] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getAllProduct = async () => {
@@ -30,6 +32,7 @@ const Shop = () => {
         const { data } = await axios.get(`${Base_Url}/api/getProduct`);
         // console.log(data);
         setProduct(data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -106,7 +109,11 @@ const Shop = () => {
                 />
 
                 {/* shop page content default */}
-                <ShopProducts layout={layout} products={currentData} />
+                {loading ? (
+                  <Spinner />
+                ) : (
+                  <ShopProducts layout={layout} products={currentData} />
+                )}
 
                 {/* shop product pagination */}
                 <div className="pro-pagination-style text-center mt-30">
