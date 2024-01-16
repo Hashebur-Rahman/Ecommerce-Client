@@ -73,7 +73,7 @@ const ProductGridListSingle = ({
             </div>
           </div>
         </div>
-        <div className="product-content text-center">
+        <div className="product-content text-center mb-3">
           <h3>
             <Link to={process.env.PUBLIC_URL + "/products/" + product._id}>
               {product.name.slice(0, 20)} {product.name.length > 20 ? ".." : ""}

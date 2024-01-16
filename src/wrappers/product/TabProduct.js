@@ -81,7 +81,7 @@ export default function TabProduct() {
                       )}
                     </div>
 
-                    <div className="product-content text-center">
+                    <div className="product-content text-center mb-3">
                       <h3 >
                         <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
                         {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}

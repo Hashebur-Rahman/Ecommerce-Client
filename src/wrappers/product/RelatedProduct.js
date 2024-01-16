@@ -32,7 +32,9 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
     (item) => item.category === `${category}`
   );
 
-  const limetedProduct = relatedprosuct.slice(0.3);
+  const limetedProduct = relatedprosuct.slice(0, 4);
+
+  console.log(limetedProduct);
 
   console.log(relatedprosuct);
   console.log(category);
@@ -66,7 +68,7 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
                     ""
                   )}
                 </div>
-                <div className="product-content text-center">
+                <div className="product-content text-center mb-3">
                   <h3>
                     <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
                       {p.name}
