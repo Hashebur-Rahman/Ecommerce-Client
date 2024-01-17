@@ -9,7 +9,7 @@ const Logo = ({ imageUrl, logoClass }) => {
         <img height={50} alt="" src="/logoFinal.png" />
         {/* <p className="display-6 fw-bold">Dokan</p> */}
 
-        {/* Shohozdokan logo here  */}
+        {/* Shohojdokan logo here  */}
       </Link>
     </div>
   );

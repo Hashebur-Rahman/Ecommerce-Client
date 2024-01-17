@@ -6,12 +6,20 @@ import Row from "react-bootstrap/Row";
 import axios from "axios";
 import { Base_Url } from "../../Config/config";
 import Spinner from "../Spinner/Spinner";
+import SectionTitle from "../section-title/SectionTitle";
 
 const CategoryCard = React.memo(({ category, navigate }) => (
   <Col key={category._id}>
     <Card height={80} onClick={() => navigate(`/category/${category._id}`)}>
       <div>
-        <div className="bg-cover no-repeat center center fixed" style={{backgroundImage:`url(${category.image})`, height:'100px', width:'100%' }}>
+        <div
+          className="bg-cover no-repeat center center fixed"
+          style={{
+            backgroundImage: `url(${category.image})`,
+            height: "100px",
+            width: "100%",
+          }}
+        >
           {/* <img variant="top" height={60} src={category.image} /> */}
         </div>
 
@@ -51,7 +59,10 @@ const CategoryProduct = () => {
         <Spinner />
       ) : (
         <div>
-          <h3 className="p-3   text-center">Browse By Category</h3>
+          <SectionTitle
+            titleText="Browse By Category!"
+            positionClass="text-center"
+          />
           <div className="container">
             <Row xs={4} md={6} height={60} lg={8} sm={5} className="g-1 md:g-5">
               {categories.map((c) => (
