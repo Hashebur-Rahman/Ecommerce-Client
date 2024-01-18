@@ -12,7 +12,7 @@ const MyAccount = () => {
     <Fragment>
       <SEO
         titleTemplate="My Account"
-        description="My Account page of Shohojdokan  react minimalist eCommerce template."
+        description="My Account page of  Shohoj Dokan Online Shop."
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
