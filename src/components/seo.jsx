@@ -25,7 +25,7 @@ SEO.defaultProps = {
   title: "Shohojdokan ",
   titleTemplate: "Product Page",
   description:
-    "Product page of Shohojdokan  react minimalist eCommerce template.",
+    "Product page of Shohoj Dokan Online Shop.",
 };
 
 export default SEO;

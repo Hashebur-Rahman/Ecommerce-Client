@@ -101,7 +101,7 @@ const Cart = () => {
     <Fragment>
       <SEO
         titleTemplate="Cart"
-        description="Cart page of flone react minimalist eCommerce template."
+        description="Cart page of Shohoj Dokan Online Shop."
       />
 
       <LayoutOne headerTop="visible">

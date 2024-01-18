@@ -50,7 +50,7 @@ export default function ShowCategortyProduct({
     <Fragment>
       <SEO
         titleTemplate="Category Page"
-        description="Category pages of  shahoDokan react minimalist eCommerce template."
+        description="Category pages of  Shohoj Dokan Online Shop."
       />
 
       <LayoutOne headerTop="visible">
