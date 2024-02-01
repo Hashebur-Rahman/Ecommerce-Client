@@ -43,7 +43,7 @@ const Shop = () => {
 
   // const { products } = useSelector((state) => state.product);
 
-  const pageLimit = 15;
+  const pageLimit = 30;
   let { pathname } = useLocation();
 
   const getLayout = (layout) => {
@@ -117,6 +117,7 @@ const Shop = () => {
 
                 {/* shop product pagination */}
                 <div className="pro-pagination-style text-center mt-30">
+                  
                   <Paginator
                     totalRecords={sortedProducts.length}
                     pageLimit={pageLimit}

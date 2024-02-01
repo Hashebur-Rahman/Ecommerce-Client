@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Base_Url } from "../../Config/config.js";
 import Spinner from "../../components/Spinner/Spinner.jsx";
+import BannerSpinner from "../../components/Spinner/BannerSpinner.jsx";
 
 const params = {
   effect: "fade",
@@ -40,7 +41,7 @@ const HeroSliderOne = () => {
   return (
     <div>
       {loading ? (
-        <Spinner />
+        <BannerSpinner />
       ) : (
         <div className="slider-area">
           <div className="slider-active nav-style-1">
