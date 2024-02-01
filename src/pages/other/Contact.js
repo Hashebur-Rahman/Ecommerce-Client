@@ -35,7 +35,7 @@ const Contact = () => {
                       <i className="fa fa-phone" />
                     </div>
                     <div className="contact-info-dec">
-                      <p>+8801602742861</p>
+                      <p>+8801995534634</p>
                       <p>+8801522101038</p>
                     </div>
                   </div>
@@ -51,7 +51,7 @@ const Contact = () => {
                       </p>
                       <p>
                         <a href="https://www.programming-agency.com/">
-                          https://www.shohojdokan.com/
+                          https://www.shohojdokan.com
                         </a>
                       </p>
                     </div>

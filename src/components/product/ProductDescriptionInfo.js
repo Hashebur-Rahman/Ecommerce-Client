@@ -81,9 +81,6 @@ const ProductDescriptionInfo = ({
       ) : (
         ""
       )}
-      <div className="pro-details-list">
-        <p>{product.shortDescription}</p>
-      </div>
       size :
       <div className="pro-details-size-content d-flex gap-3">
         {product.selectedOptions &&
@@ -159,6 +156,9 @@ const ProductDescriptionInfo = ({
           }
         </div>
       </div>
+      <div className="pro-details-list">
+        <div dangerouslySetInnerHTML={{ __html: product.shortDescription }} />
+      </div>
       <div className="pro-details-social">
         <ul>
           <li>
@@ -166,20 +166,28 @@ const ProductDescriptionInfo = ({
               <i className="fa fa-facebook" />
             </a>
           </li>
+          <li>
+            <a
+              title="facebook Pages"
+              href="https://www.facebook.com/shohojdokan1/"
+            >
+              <i className="fa fa-facebook" />
+            </a>
+          </li>
 
-          <li>
-            <a href="//pinterest.com">
-              <i className="fa fa-pinterest-p" />
-            </a>
-          </li>
-          <li>
-            <a href="//twitter.com">
-              <i className="fa fa-twitter" />
-            </a>
-          </li>
           <li>
             <a href="//linkedin.com">
               <i className="fa fa-linkedin" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@shohojdokan?lang=en">
+              <i className="fa fa-youtube" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/shohojdokan/?next=%2F">
+              <i className="fa fa-instagram" />
             </a>
           </li>
         </ul>

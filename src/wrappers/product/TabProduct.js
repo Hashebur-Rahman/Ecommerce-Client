@@ -13,7 +13,7 @@ import { Base_Url } from "../../Config/config";
 
 export default function TabProduct() {
   const [product, setProduct] = useState([]);
-  const [displayLimit, setDisplayLimit] = useState(16);
+  const [displayLimit, setDisplayLimit] = useState(32);
   const navigate = useNavigate();
 
   //get cat
@@ -38,7 +38,7 @@ export default function TabProduct() {
   const limitedProducts = fetchProduct.slice(0, displayLimit);
 
   const showMore = () => {
-    setDisplayLimit((prevLimit) => prevLimit + 16); // Increase the limit by 10
+    setDisplayLimit((prevLimit) => prevLimit + 32); // Increase the limit by 10
   };
 
   // console.log(fetchProduct);
@@ -82,9 +82,9 @@ export default function TabProduct() {
                     </div>
 
                     <div className="product-content text-center mb-3">
-                      <h3 >
+                      <h3>
                         <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
-                        {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
+                          {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
                         </Link>
                       </h3>
                       {p.rating && p.rating > 0 ? (
