@@ -1,16 +1,16 @@
 [
   {
     "id": "1",
-    "image": "/assets/img/team/team-1.jpg",
+    "image": "/assets/img/team/Hashebur.jpg",
     "fbLink": "https://www.facebook.com/dev.hashebur.rahman/",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
     "name": "Mr. Hasehebur Rahman",
-    "position": "Chairman"
+    "position": "Founder And CEO"
   },
   {
     "id": "2",
-    "image": "/assets/img/team/team-3.jpg",
+    "image": "/assets/img/team/nimur.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
@@ -33,7 +33,7 @@
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
     "name": " Al-Amin Akond",
-    "position": "Manager"
+    "position": "Designer"
   },
   {
     "id": "5",
@@ -41,7 +41,7 @@
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
-    "name": "Mr. Mamun miya",
+    "name": "Mr.Mamun miya",
     "position": "Sell Manager"
   },
   {

@@ -22,10 +22,10 @@ SEO.propTypes = {
 };
 
 SEO.defaultProps = {
-  title: "Shohozdokan ",
+  title: "Shohojdokan ",
   titleTemplate: "Product Page",
   description:
-    "Product page of Shohozdokan  react minimalist eCommerce template.",
+    "Product page of Shohoj Dokan Online Shop.",
 };
 
 export default SEO;

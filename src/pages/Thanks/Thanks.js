@@ -112,7 +112,8 @@ const Thanks = () => {
                   <tr>
                     <td className="fw-bold">Total Payable Amount </td>
                     <td className="fw-bold">
-                      :৳ {Math.round(order?.totalWithDelivery)}
+                      :৳{" "}
+                      {Math.round(order?.subTotal - (order?.couponTotal || 0))}
                     </td>
                   </tr>
                 </tbody>

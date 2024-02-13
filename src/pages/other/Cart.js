@@ -76,9 +76,26 @@ const Cart = () => {
   };
 
   const calculateDiscount = (code) => {
-    if (code === "shohojdokan40") {
-      return 40;
+    const couponCodes = {
+      shohojdokan40: 20,
+      hashebur15: 15,
+      rayhan15: 15,
+      mamun15: 15,
+      alamin15: 15,
+      anu15: 15,
+      sultana15: 15,
+      nisan15: 15,
+      rakib15: 15,
+      naim15: 15,
+
+      // Add more coupon codes as needed
+    };
+
+    // Check if the provided code is in the couponCodes object
+    if (code in couponCodes) {
+      return couponCodes[code];
     } else {
+      // If the code is not found, return 0 discount
       return 0;
     }
   };
@@ -101,7 +118,7 @@ const Cart = () => {
     <Fragment>
       <SEO
         titleTemplate="Cart"
-        description="Cart page of flone react minimalist eCommerce template."
+        description="Cart page of Shohoj Dokan Online Shop."
       />
 
       <LayoutOne headerTop="visible">
@@ -328,7 +345,7 @@ const Cart = () => {
                             <input
                               value={address}
                               type="text"
-                              placeholder="Write Your Address"
+                              placeholder="Write Your Address with your Upozala"
                               onChange={(e) => setAddress(e.target.value)}
                             />
                           </div>
@@ -379,7 +396,11 @@ const Cart = () => {
                       </h5>
 
                       <h5 className="grand-totall-title1">
-                        Total <span> ৳{Math.round(cartTotalPrice + deliveryCharge)}</span>
+                        Total{" "}
+                        <span>
+                          {" "}
+                          ৳{Math.round(cartTotalPrice + deliveryCharge)}
+                        </span>
                       </h5>
                       {couponPrice && (
                         <h5 className="grand-totall-title1">
@@ -393,7 +414,10 @@ const Cart = () => {
                       {couponPrice && (
                         <h4 className="grand-totall-title">
                           Grand Total{" "}
-                          <span> ৳{Math.round(couponPrice + deliveryCharge)} </span>
+                          <span>
+                            {" "}
+                            ৳{Math.round(couponPrice + deliveryCharge)}{" "}
+                          </span>
                         </h4>
                       )}
                       <Link onClick={handleCreateOrder}>Proceed to Order</Link>

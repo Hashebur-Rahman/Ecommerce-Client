@@ -9,7 +9,7 @@ const TeamMemberOneSingle = ({ data, spaceBottomClass }) => {
             src={process.env.PUBLIC_URL + data.image}
             alt=""
             className="img-fluid  "
-            style={{height:250}}
+            // style={{height:250}}
           />
           <div className="team-action">
             <a

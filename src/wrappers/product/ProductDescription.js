@@ -18,6 +18,7 @@ import { Base_Url } from "../../Config/config";
 import clsx from "clsx";
 
 import RelatedProduct from "./RelatedProduct";
+import Spinner from "../../components/Spinner/Spinner";
 
 const ProductDescription = ({
   spaceTopClass,
@@ -27,6 +28,7 @@ const ProductDescription = ({
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
 
   console.log(id);
   let { pathname } = useLocation();
@@ -60,8 +62,9 @@ const ProductDescription = ({
   const getProduct = async () => {
     try {
       const { data } = await axios.get(`${Base_Url}/api/product/${id}`);
-      console.log(data);
+      // console.log(data);
       setProduct(data.product);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +75,7 @@ const ProductDescription = ({
     <Fragment>
       <SEO
         titleTemplate="Shop Page"
-        description="Shop page of  shahoDokan react minimalist eCommerce template."
+        description="Shop page of   Shohoj Dokan Online Shop."
       />
 
       <LayoutOne headerTop="visible">
@@ -105,16 +108,21 @@ const ProductDescription = ({
                 )}
               </div>
               <div className="col-lg-6 col-md-6">
-                {/* product description info */}
-                <ProductDescriptionInfo
-                  product={product}
-                  discountedPrice={discountedPrice}
-                  finalDiscountedPrice={finalDiscountedPrice}
-                  finalProductPrice={finalProductPrice}
-                  cartItems={cartItems}
-                  wishlistItem={wishlistItem}
-                  compareItem={compareItem}
-                />
+                {loading ? (
+                  <Spinner />
+                ) : (
+                  <ProductDescriptionInfo
+                    product={product}
+                    discountedPrice={discountedPrice}
+                    finalDiscountedPrice={finalDiscountedPrice}
+                    finalProductPrice={finalProductPrice}
+                    cartItems={cartItems}
+                    wishlistItem={wishlistItem}
+                    compareItem={compareItem}
+                  />
+                )}
+
+                 
               </div>
             </div>
           </div>
