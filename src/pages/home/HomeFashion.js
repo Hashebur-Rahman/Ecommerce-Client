@@ -28,7 +28,7 @@ const HomeFashion = () => {
 
         {/* blog featured */}
         {/* <BlogFeatured spaceBottomClass="pb-55" /> */}
-        <FeatureIcon spaceTopClass="pt-100" spaceBottomClass="pb-60" />
+        <FeatureIcon spaceTopClass="pt-50" spaceBottomClass="pb-60" />
       </LayoutOne>
     </Fragment>
   );

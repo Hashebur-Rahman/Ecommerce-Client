@@ -6,6 +6,7 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Swiper, { SwiperSlide } from "../../components/swiper";
+import ReactImageMagnify from "react-image-magnify";
 
 const ProductImageGallery = ({ product }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -51,7 +52,25 @@ const ProductImageGallery = ({ product }) => {
           ""
         )}
 
-        <img    className="img-fluid" src={product.image} alt="" />
+     
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: "Product Image",
+                isFluidWidth: true,
+                src: product.image,
+              },
+              largeImage: {
+                src: product.image,
+                backgroundColor: "White",
+                width: 800,
+                height: 1200,
+             
+              },
+            }}
+          />
+         
+        {/* <img className="img-fluid" src={product.image} alt="" /> */}
 
         {/* {product?.image?.length ? (
           <Swiper options={gallerySwiperParams}>

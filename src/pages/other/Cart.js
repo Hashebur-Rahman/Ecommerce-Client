@@ -87,6 +87,7 @@ const Cart = () => {
       nisan15: 15,
       rakib15: 15,
       naim15: 15,
+      uttalbangla: 15,
 
       // Add more coupon codes as needed
     };
@@ -324,7 +325,7 @@ const Cart = () => {
                             <label>*Your Phone Number</label>
                             <input
                               value={phone}
-                              type="text"
+                              type="number"
                               placeholder="012345.."
                               onChange={(e) => setPhone(e.target.value)}
                             />
