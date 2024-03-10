@@ -8,9 +8,15 @@ import { Base_Url } from "../../Config/config";
 import Spinner from "../Spinner/Spinner";
 import SectionTitle from "../section-title/SectionTitle";
 
-const CategoryCard = React.memo(({ category, navigate }) => (
+const CategoryCard = React.memo(({ category, navigate, handleClick }) => (
   <Col key={category._id}>
-    <Card height={80} onClick={() => navigate(`/category/${category._id}`)}>
+    <Card
+      height={80}
+      onClick={() => {
+        navigate(`/category/${category._id}`);
+        handleClick();
+      }}
+    >
       <div>
         <div
           className="bg-cover no-repeat center center fixed"
@@ -33,6 +39,10 @@ const CategoryCard = React.memo(({ category, navigate }) => (
 
 const CategoryProduct = () => {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    window.location.reload();
+  };
 
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -66,7 +76,12 @@ const CategoryProduct = () => {
           <div className="container">
             <Row xs={4} md={6} height={60} lg={8} sm={5} className="g-1 md:g-5">
               {categories.map((c) => (
-                <CategoryCard key={c._id} category={c} navigate={navigate} />
+                <CategoryCard
+                  key={c._id}
+                  category={c}
+                  navigate={navigate}
+                  handleClick={handleClick}
+                />
               ))}
             </Row>
           </div>

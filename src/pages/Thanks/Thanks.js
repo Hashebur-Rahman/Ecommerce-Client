@@ -170,7 +170,7 @@ const Thanks = () => {
               Continue Shopping
             </button>
           </div>
-          <p className="text-center">Please tack slingshot</p>
+          <p className="text-center">your order was successfully submitted</p>
         </div>
       </LayoutOne>
     </Fragment>

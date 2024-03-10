@@ -46,10 +46,14 @@ export default function ShowCategortyProduct({
   // console.log(categoryProduct);
   // console.log(id);
 
+  const handleClick = () => {
+    window.location.reload();
+  };
+
   return (
     <Fragment>
       <SEO
-        titleTemplate="Category Page"
+        titleTemplate="Category  Product"
         description="Category pages of  Shohoj Dokan Online Shop."
       />
 
@@ -88,7 +92,12 @@ export default function ShowCategortyProduct({
                   >
                     {categoryProduct.map((p) => (
                       <Col className={clsx("product-wrap")} key={p._id}>
-                        <Card onClick={() => navigate(`/products/${p._id}`)}>
+                        <Card
+                          onClick={() => {
+                            navigate(`/products/${p._id}`);
+                            handleClick();
+                          }}
+                        >
                           <div className="product-img img-fluid">
                             <Link
                               to={process.env.PUBLIC_URL + "/product/" + p.id}

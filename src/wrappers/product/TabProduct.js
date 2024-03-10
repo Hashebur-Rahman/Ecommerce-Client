@@ -38,10 +38,15 @@ export default function TabProduct() {
   const limitedProducts = fetchProduct.slice(0, displayLimit);
 
   const showMore = () => {
-    setDisplayLimit((prevLimit) => prevLimit + 32); // Increase the limit by 10
+    setDisplayLimit((prevLimit) => prevLimit + 32);
+    
+    // Increase the limit by 10
   };
 
   // console.log(fetchProduct);
+  const handleClick = () => {
+    window.location.reload();
+  };
 
   return (
     // running pages
@@ -62,9 +67,14 @@ export default function TabProduct() {
             <Row xs={2} sm={3} md={4} lg={4} className="xs:g-2 g-2 h-75">
               {limitedProducts.map((p) => (
                 <Col className={clsx("product-wrap")} key={p._id}>
-                  <Card onClick={() => navigate(`/products/${p._id}`)}>
+                  <Card
+                    onClick={() => {
+                      handleClick();
+                      navigate(`/products/${p._id}`);
+                    }}
+                  >
                     <div className="product-img img-fluid">
-                      <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
+                      <Link to={process.env.PUBLIC_URL + "/products/" + p._id}>
                         <img className="default-img " src={p.image} alt="" />
                       </Link>
                       {p.discount || p.new ? (
@@ -83,7 +93,7 @@ export default function TabProduct() {
 
                     <div className="product-content text-center mb-3">
                       <h3>
-                        <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
+                        <Link to={process.env.PUBLIC_URL + "/products/" + p._id}>
                           {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
                         </Link>
                       </h3>

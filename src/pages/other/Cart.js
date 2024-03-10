@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import SEO from "../../components/seo";
@@ -37,6 +37,18 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const isReloaded = sessionStorage.getItem("isCategoryReload");
+    if (!isReloaded) {
+      console.log("ssss");
+      window.location.reload();
+      sessionStorage.setItem("isCategoryReload", true);
+    }
+    return () => {
+      sessionStorage.removeItem("isCategoryReload");
+    };
+  }, []);
+
   const handleCreateOrder = async (e) => {
     e.preventDefault();
 
@@ -73,6 +85,7 @@ const Cart = () => {
     } catch (error) {
       console.error("Error preparing order data:", error);
     }
+    window.location.reload();
   };
 
   const calculateDiscount = (code) => {
@@ -83,9 +96,6 @@ const Cart = () => {
       mamun15: 15,
       alamin15: 15,
       anu15: 15,
-      sultana15: 15,
-      nisan15: 15,
-      rakib15: 15,
       naim15: 15,
       uttalbangla: 15,
 
@@ -101,7 +111,8 @@ const Cart = () => {
     }
   };
 
-  const deliveryCharge = selectedDistrict.toLowerCase() === "kurigram" ? 0 : 60;
+  const deliveryCharge =
+    selectedDistrict.toLowerCase() === "kurigram" ? 60 : 80;
 
   // console.log(deliveryCharge, selectedDistrict);
   // console.log(Math.round(couponPrice + 60));

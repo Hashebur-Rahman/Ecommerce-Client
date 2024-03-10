@@ -10,7 +10,9 @@ const MenuCart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 
- 
+  const handleClick = () => {
+    window.location.reload();
+  };
   return (
     <div className="shopping-cart-content">
       {cartItems && cartItems.length > 0 ? (
@@ -47,7 +49,9 @@ const MenuCart = () => {
                       </Link>
                     </h4>
                     <h6>Qty : {item.quantity}</h6>
-                    <span> ৳ : 
+                    <span>
+                      {" "}
+                      ৳ :
                       {discountedPrice !== null
                         ? finalDiscountedPrice
                         : finalProductPrice}
@@ -74,16 +78,38 @@ const MenuCart = () => {
           </ul>
           <div className="shopping-cart-total">
             <h4>
-              Total : <span className="shop-total"> ৳ : {Math.round(cartTotalPrice)}</span>
+              Total :{" "}
+              <span className="shop-total">
+                {" "}
+                ৳ : {Math.round(cartTotalPrice)}
+              </span>
             </h4>
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
-            <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
-              view cart
-            </Link>
-            <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
-              checkout
-            </Link>
+            <div
+              onClick={() => {
+                handleClick();
+              }}
+            >
+              <Link
+                className="default-btn"
+                to={process.env.PUBLIC_URL + "/cart"}
+              >
+                view cart
+              </Link>
+            </div>
+            <div
+              onClick={() => {
+                handleClick();
+              }}
+            >
+              <Link
+                className="default-btn"
+                to={process.env.PUBLIC_URL + "/cart"}
+              >
+                checkout
+              </Link>
+            </div>
           </div>
         </Fragment>
       ) : (

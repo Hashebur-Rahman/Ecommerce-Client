@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProductCartQuantity } from "../../helpers/product";
@@ -57,6 +57,18 @@ const ProductDescriptionInfo = ({
 
     navigate("/cart");
   };
+
+  // useEffect(() => {
+  //   const isReloaded = sessionStorage.getItem("isReloaded");
+  //   console.log("ssss");
+  //   if (!isReloaded) {
+  //     window.location.reload();
+  //     sessionStorage.setItem("isReloaded", true);
+  //   }
+  //   return () => {
+  //     sessionStorage.removeItem("isReloaded");
+  //   };
+  // }, []);
 
   // console.log(product.selectedOptions);
   return (

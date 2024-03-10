@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
@@ -23,11 +23,22 @@ const ProductGridListSingle = ({
   const finalProductPrice = +product.price.toFixed(2);
   const finalDiscountedPrice = +discountedPrice.toFixed(2);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    window.location.reload();
+  };
 
   return (
     <Fragment>
       <div className={clsx("product-wrap", spaceBottomClass)}>
-        <div className="product-img">
+        <div
+          onClick={() => {
+            handleClick();
+            navigate(`/products/${product._id}`);
+          }}
+          className="product-img"
+        >
           <Link to={process.env.PUBLIC_URL + "/products/" + product._id}>
             <img className="default-img" src={product.image} alt="" />
           </Link>
