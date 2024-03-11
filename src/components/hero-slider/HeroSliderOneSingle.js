@@ -2,6 +2,10 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
+const handleClick = () => {
+  window.location.reload();
+};
+
 const HeroSliderOneSingle = ({ data }) => {
   return (
     <div className="single-slider slider-height-1 bg-purple">
@@ -11,7 +15,12 @@ const HeroSliderOneSingle = ({ data }) => {
             <div className="slider-content slider-animated-1">
               <h3 className="animated">{data.title}</h3>
               <h1 className="animated">{data.productTitle}</h1>
-              <div className="slider-btn btn-hover">
+              <div
+                onClick={() => {
+                  handleClick();
+                }}
+                className="slider-btn btn-hover"
+              >
                 <Link className="animated" to={`/category/${data.category}`}>
                   SHOP NOW
                 </Link>
