@@ -28,11 +28,15 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
     getAllProduct();
   }, []);
 
-  const  relatesProduct = product.filter(
+  const relatesProduct = product.filter(
     (item) => item.category === `${category}`
   );
 
   const limitedProduct = relatesProduct.slice(0, 20);
+
+  const handleClick = () => {
+    window.location.reload();
+  };
 
   // console.log(limitedProduct);
 
@@ -50,9 +54,14 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
         <Row xs={2} sm={3} md={4} lg={4} className="xs:g-2 g-2 h-75">
           {limitedProduct.map((p) => (
             <Col className={clsx("product-wrap")} key={p._id}>
-              <Card onClick={() => navigate(`/products/${p._id}`)}>
+              <Card
+                onClick={() => {
+                  handleClick();
+                  navigate(`/products/${p._id}`);
+                }}
+              >
                 <div className="product-img">
-                  <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
+                  <Link to={process.env.PUBLIC_URL + "/products/" + p._id}>
                     <img className="default-img " src={p.image} alt="" />
                   </Link>
                   {p.discount || p.new ? (
@@ -70,8 +79,8 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
                 </div>
                 <div className="product-content text-center mb-3">
                   <h3>
-                    <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
-                    {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
+                    <Link to={process.env.PUBLIC_URL + "/products/" + p._id}>
+                      {p.name.slice(0, 16)} {p.name.length > 17 ? ".." : ""}
                     </Link>
                   </h3>
                   {p.rating && p.rating > 0 ? (

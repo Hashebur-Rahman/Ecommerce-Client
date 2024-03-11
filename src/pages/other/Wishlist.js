@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { getDiscountPrice } from "../../helpers/product";
@@ -19,6 +19,18 @@ const Wishlist = () => {
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { cartItems } = useSelector((state) => state.cart);
 
+  useEffect(() => {
+    const isReloaded = sessionStorage.getItem("isCategoryReload");
+    if (!isReloaded) {
+      console.log("ssss");
+      window.location.reload();
+      sessionStorage.setItem("isCategoryReload", true);
+    }
+    return () => {
+      sessionStorage.removeItem("isCategoryReload");
+    };
+  }, []);
+  
   return (
     <Fragment>
       <SEO

@@ -3,8 +3,17 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 
 const Logo = ({ imageUrl, logoClass }) => {
+  const handleClick = () => {
+    window.location.reload();
+  };
+
   return (
-    <div className={clsx(logoClass)}>
+    <div
+      onClick={() => {
+        handleClick();
+      }}
+      className={clsx(logoClass)}
+    >
       <Link to={process.env.PUBLIC_URL + "/"}>
         <img height={50} alt="" src="/logoFinal.png" />
         {/* <p className="display-6 fw-bold">Dokan</p> */}

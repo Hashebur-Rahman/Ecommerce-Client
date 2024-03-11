@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import HeroSliderOne from "../../wrappers/hero-slider/HeroSliderOne";
@@ -7,6 +7,18 @@ import TabProduct from "../../wrappers/product/TabProduct";
 import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
 
 const HomeFashion = () => {
+  useEffect(() => {
+    const isReloaded = sessionStorage.getItem("isCategoryReload");
+    if (!isReloaded) {
+      console.log("ssss");
+      window.location.reload();
+      sessionStorage.setItem("isCategoryReload", true);
+    }
+    return () => {
+      sessionStorage.removeItem("isCategoryReload");
+    };
+  }, []);
+
   return (
     <Fragment>
       <SEO

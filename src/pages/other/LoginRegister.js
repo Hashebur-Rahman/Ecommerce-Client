@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Link, useLocation } from "react-router-dom"; 
+import React, { Fragment, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../../components/seo";
@@ -9,6 +9,18 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 const LoginRegister = () => {
   let { pathname } = useLocation();
 
+  useEffect(() => {
+    const isReloaded = sessionStorage.getItem("isCategoryReload");
+    if (!isReloaded) {
+      console.log("ssss");
+      window.location.reload();
+      sessionStorage.setItem("isCategoryReload", true);
+    }
+    return () => {
+      sessionStorage.removeItem("isCategoryReload");
+    };
+  }, []);
+
   return (
     <Fragment>
       <SEO
@@ -17,11 +29,14 @@ const LoginRegister = () => {
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
-        <Breadcrumb 
+        <Breadcrumb
           pages={[
-            {label: "Home", path: process.env.PUBLIC_URL + "/" },
-            {label: "Login Register", path: process.env.PUBLIC_URL + pathname }
-          ]} 
+            { label: "Home", path: process.env.PUBLIC_URL + "/" },
+            {
+              label: "Login Register",
+              path: process.env.PUBLIC_URL + pathname,
+            },
+          ]}
         />
         <div className="login-register-area pt-100 pb-100">
           <div className="container">

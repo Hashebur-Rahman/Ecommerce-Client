@@ -83,6 +83,18 @@ const Shop = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const isReloaded = sessionStorage.getItem("isCategoryReload");
+    if (!isReloaded) {
+      console.log("ssss");
+      window.location.reload();
+      sessionStorage.setItem("isCategoryReload", true);
+    }
+    return () => {
+      sessionStorage.removeItem("isCategoryReload");
+    };
+  }, []);
+
   return (
     <Fragment>
       <SEO
