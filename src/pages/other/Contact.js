@@ -74,7 +74,7 @@ const Contact = () => {
                     </div>
                     <div className="contact-info-dec">
                       <p>Address goes here, </p>
-                      <p>hatiya ,ulipur, kurigram</p>
+                      <p>Ulipur, kurigram</p>
                     </div>
                   </div>
                   <div className="contact-social text-center">

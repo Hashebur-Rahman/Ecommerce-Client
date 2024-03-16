@@ -58,18 +58,6 @@ const ProductDescriptionInfo = ({
     navigate("/cart");
   };
 
-  // useEffect(() => {
-  //   const isReloaded = sessionStorage.getItem("isReloaded");
-  //   console.log("ssss");
-  //   if (!isReloaded) {
-  //     window.location.reload();
-  //     sessionStorage.setItem("isReloaded", true);
-  //   }
-  //   return () => {
-  //     sessionStorage.removeItem("isReloaded");
-  //   };
-  // }, []);
-
   // console.log(product.selectedOptions);
   return (
     <div className="product-details-content mt-20 ml-70">
@@ -147,7 +135,11 @@ const ProductDescriptionInfo = ({
         <div className="pro-details-cart btn-hover">
           {
             <button
-              onClick={() =>
+              onClick={() => {
+                if (!selectedProductSize) {
+                  cogoToast.error("Please Select Size");
+                  return;
+                }
                 dispatch(
                   addToCart({
                     ...product,
@@ -158,9 +150,9 @@ const ProductDescriptionInfo = ({
                       ? product.selectedProductSize
                       : null,
                   })
-                )
-              }
-              disabled={productCartQty > 0}
+                );
+              }}
+              // disabled={productCartQty > 0}
             >
               {" "}
               Add To Cart{" "}
@@ -168,6 +160,7 @@ const ProductDescriptionInfo = ({
           }
         </div>
       </div>
+      <h2 className="text-center">Product Description :</h2>
       <div className="pro-details-list">
         <div dangerouslySetInnerHTML={{ __html: product.shortDescription }} />
       </div>
