@@ -114,7 +114,7 @@ const ProductGridListSingle = ({
           <div className="col-xl-4 col-md-5 col-sm-6">
             <div className="product-list-image-wrap">
               <div className="product-img">
-                <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                <Link to={process.env.PUBLIC_URL + "/products/" + product._id}>
                   <img
                     className="default-img img-fluid"
                     src={product.image}
