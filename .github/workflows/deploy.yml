@@ -23,7 +23,7 @@ jobs:
           node-version: "20" # Change this to Node.js 20.x
 
       - name: Install dependencies
-        run: npm install
+        run: npm install -force
 
       # - name: Build and start Node.js application
       #   run: npm start
