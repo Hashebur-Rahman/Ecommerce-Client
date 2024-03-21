@@ -1,0 +1,41 @@
+name: Deploy Node.js Application
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set permissions
+        run: chmod +x -R /var/www/backend/_work/Ecomorde_Client/Ecomorde_Client
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20" # Change this to Node.js 20.x
+
+      - name: Install dependencies
+        run: npm install
+
+      # - name: Build and start Node.js application
+      #   run: npm start
+
+      - name: pm2 stop
+        run: pm2 stop 1 #set the pm2 id if there has multiple websites
+
+      - name: pm2 start
+        run: pm2 start 1
+
+      - name: pm2 save
+        run: pm2 save
+
+      - name: nginx restart
+        run: sudo service nginx restart
