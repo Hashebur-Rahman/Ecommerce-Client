@@ -100,7 +100,7 @@ export default function ShowCategortyProduct({
                         >
                           <div className="product-img img-fluid">
                             <Link
-                              to={process.env.PUBLIC_URL + "/product/" + p.id}
+                              to={process.env.PUBLIC_URL + "/products/" + p._id}
                             >
                               <img
                                 className="default-img "
@@ -169,68 +169,6 @@ export default function ShowCategortyProduct({
             )}
           </div>
         )}
-
-        {/* <div className="container mb-20">
-          <ShopSearch />
-          <div className={clsx("shop-area", spaceTopClass, spaceBottomClass)}>
-            <Row
-              xs={2}
-              sm={3}
-              md={4}
-              lg={4}
-              className="xs:g-2 g-2 container  h-75"
-            >
-              {categoryProduct.map((p) => (
-                <Col className={clsx("product-wrap")} key={p._id}>
-                  <Card onClick={() => navigate(`/products/${p._id}`)}>
-                    <div className="product-img img-fluid">
-                      <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
-                        <img className="default-img " src={p.image} alt="" />
-                      </Link>
-                      {p.discount || p.new ? (
-                        <div className="product-img-badges">
-                          {p.discount ? (
-                            <span className="pink">-{p.discount}%</span>
-                          ) : (
-                            ""
-                          )}
-                          {p.new ? <span className="purple">New</span> : ""}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="product-content text-center">
-                      <h3>
-                        <Link to={process.env.PUBLIC_URL + "/product/" + p.id}>
-                          {p.name}
-                        </Link>
-                      </h3>
-                      {p.rating && p.rating > 0 ? (
-                        <div className="product-rating">
-                          <Rating ratingValue={p.rating} />
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      <div className="product-price">
-                        {p.price !== null ? (
-                          <Fragment>
-                            <span>৳ {(p.price / p.discount).toFixed(2)}</span>
-
-                            <span className="old">৳ {p.discount}</span>
-                          </Fragment>
-                        ) : (
-                          <span>৳{p.price} </span>
-                        )}
-                      </div>
-                    </div>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        </div> */}
       </LayoutOne>
     </Fragment>
   );
