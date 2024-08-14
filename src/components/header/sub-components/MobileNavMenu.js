@@ -18,17 +18,16 @@ const MobileNavMenu = () => {
           <Link to={process.env.PUBLIC_URL + "/about"}>{t("about_us")}</Link>
         </li>
 
-        
-
         <li>
           <Link to={process.env.PUBLIC_URL + "/contact"}>
             {t("contact_us")}
           </Link>
         </li>
         <li>
-          <Link to={process.env.PUBLIC_URL + "/login-register"}>
-            {t("login_register")}
-          </Link>
+          <Link to={process.env.PUBLIC_URL + "/register"}>{t("register")}</Link>
+        </li>
+        <li>
+          <Link to={process.env.PUBLIC_URL + "/login"}>{t("login")}</Link>
         </li>
       </ul>
     </nav>

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const FeatureIconSingle = ({ singleFeature }) => {
   return (
-    <div className="support-wrap">
+    <div className="support-wrap mb-30">
       <div className="support-icon">
         <img
           className="animated"
@@ -10,9 +10,9 @@ const FeatureIconSingle = ({ singleFeature }) => {
           alt=""
         />
       </div>
-      <div className="support-content ">
-        <h6 className="fw-bold" >{singleFeature.title}</h6>
-        <h6>{singleFeature.subtitle}</h6>
+      <div className="support-content">
+        <h5 className="fw-bold">{singleFeature.title}</h5>
+        <p>{singleFeature.subtitle}</p>
       </div>
     </div>
   );

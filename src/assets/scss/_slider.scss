@@ -163,101 +163,101 @@
 
 .swiper-slide .slider-animated-1 * {
   -webkit-animation-duration: 1.3s;
-          animation-duration: 1.3s;
+  animation-duration: 1.3s;
 
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-.swiper-slide-visible .swiper-slide{
+.swiper-slide-visible .swiper-slide {
   pointer-events: visible;
 }
 .swiper-slide-visible {
   .slider-animated-1 {
     h3 {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
-      -webkit-animation-delay: 1.0s;
-              animation-delay: 1.0s;
+      animation-name: fadeInUp;
+      -webkit-animation-delay: 1s;
+      animation-delay: 1s;
     }
     h1 {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.3s;
-              animation-delay: 1.3s;
+      animation-delay: 1.3s;
     }
     h5 {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.5s;
-              animation-delay: 1.5s;
+      animation-delay: 1.5s;
     }
     p {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.5s;
-              animation-delay: 1.5s;
+      animation-delay: 1.5s;
     }
     a {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-delay: 1.6s;
     }
     &.slider-single-img img {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
-      -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-name: fadeInUp;
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
     }
     &.single-slider-img4 img {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
-      -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-name: fadeInUp;
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
     }
     &.slider-singleimg-hm9 img {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-delay: 1.6s;
     }
     &.slider-singleimg-hm11 img {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-delay: 1.6s;
     }
     .content-img img {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
-      -webkit-animation-delay: 1.0s;
-              animation-delay: 1.0s;
+      animation-name: fadeInUp;
+      -webkit-animation-delay: 1s;
+      animation-delay: 1s;
     }
   }
   .slider-animated-2 {
     h3 {
       -webkit-animation-name: fadeInLeft;
-              animation-name: fadeInLeft;
-      -webkit-animation-delay: 1.0s;
-              animation-delay: 1.0s;
+      animation-name: fadeInLeft;
+      -webkit-animation-delay: 1s;
+      animation-delay: 1s;
     }
     h1 {
       -webkit-animation-name: fadeInLeft;
-              animation-name: fadeInLeft;
+      animation-name: fadeInLeft;
       -webkit-animation-delay: 1.3s;
-              animation-delay: 1.3s;
+      animation-delay: 1.3s;
     }
     a {
       -webkit-animation-name: fadeInLeft;
-              animation-name: fadeInLeft;
+      animation-name: fadeInLeft;
       -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-delay: 1.6s;
     }
     &.slider-singleimg-hm10 img {
       -webkit-animation-name: fadeInRight;
-              animation-name: fadeInRight;
+      animation-name: fadeInRight;
       -webkit-animation-delay: 1.6s;
-              animation-delay: 1.6s;
+      animation-delay: 1.6s;
     }
   }
 }
@@ -429,7 +429,6 @@
       margin-right: 15px;
     }
   }
-
 
   .swiper-pagination-bullets {
     position: absolute;
@@ -607,7 +606,7 @@
     .slider-btn {
       a {
         font-size: 16px;
-        
+
         color: #fff;
         border: 1px solid #6eab49;
         background-color: #6eab49;
@@ -748,10 +747,6 @@
     background-position: 22%;
   }
 }
-
-
-
-
 
 /* home 3 */
 
@@ -967,7 +962,6 @@
   }
 }
 
-
 /* slider hm4 */
 
 .slider-height-3 {
@@ -1065,9 +1059,6 @@
     }
   }
 }
-
-
-
 
 /* slider 5 */
 
@@ -1224,7 +1215,6 @@
   }
 }
 
-
 /* slider 6 hm7 */
 
 .slider-height-5 {
@@ -1245,7 +1235,6 @@
     height: 500px;
   }
 }
-
 
 .slider-content-6 {
   h1 {
@@ -1337,7 +1326,6 @@
   }
 }
 
-
 /* slider hm8 */
 
 .slider-height-6 {
@@ -1361,7 +1349,6 @@
     margin: 0 0 0;
   }
 }
-
 
 /* slider hm9 */
 .slider-height-7 {
@@ -1512,7 +1499,6 @@
   }
 }
 
-
 /* slider hm10 */
 
 .slider-height-8 {
@@ -1551,9 +1537,7 @@
   }
 }
 
-
 /* home 11 */
-
 
 .slider-height-9 {
   height: 780px;
@@ -1698,7 +1682,6 @@
   }
 }
 
-
 /* home 12 */
 
 #section2 .fp-tableCell,
@@ -1711,8 +1694,6 @@
   display: flex;
   align-items: flex-end;
 }
-
-
 
 #section5 .fp-tableCell {
   height: auto !important;
@@ -1744,7 +1725,6 @@
   }
 }
 
-
 .fullpage-slider-mrg {
   margin-top: -34px;
   @media #{$xs-layout} {
@@ -1766,31 +1746,30 @@
   .slider-animated-1 {
     h3 {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 0.5s;
-              animation-delay: 0.5s;
+      animation-delay: 0.5s;
     }
     h1 {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
-      -webkit-animation-delay: 1.0s;
-              animation-delay: 1.0s;
+      animation-name: fadeInUp;
+      -webkit-animation-delay: 1s;
+      animation-delay: 1s;
     }
     a {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 1.3s;
-              animation-delay: 1.3s;
+      animation-delay: 1.3s;
     }
     & img {
       -webkit-animation-name: fadeInUp;
-              animation-name: fadeInUp;
+      animation-name: fadeInUp;
       -webkit-animation-delay: 0.8s;
-              animation-delay: 0.8s;
+      animation-delay: 0.8s;
     }
   }
 }
-
 
 .slider12-img-2 {
   @media #{$xs-layout} {
@@ -1842,7 +1821,6 @@
   }
 }
 
-
 @media #{$xs-layout} {
   .fullpage-wrapper {
     padding-top: 130px;
@@ -1861,11 +1839,7 @@
   }
 }
 
-
-
-
 /* home 13 */
-
 
 .slider-content-13 {
   h5 {
@@ -1936,10 +1910,6 @@
     background-position: 55%;
   }
 }
-
-
-
-
 
 .slider-single-img-14 {
   position: relative;
@@ -2101,7 +2071,6 @@
   }
 }
 
-
 .slider-content-15 {
   h1 {
     font-family: $abrilfatface;
@@ -2149,55 +2118,55 @@
 
 .dealy-style-2 {
   .timer {
-      margin: 49px 0 43px;
+    margin: 49px 0 43px;
+    @media #{$lg-layout} {
+      margin: 40px 0 40px;
+    }
+    @media #{$md-layout} {
+      margin: 30px 0 35px;
+    }
+    @media #{$xs-layout} {
+      margin: 20px 0 5px;
+    }
+    span {
+      font-size: 48px;
+      font-weight: 300;
+
+      display: inline-block;
+
+      margin: 0 34px 0;
+
+      color: #fff;
       @media #{$lg-layout} {
-        margin: 40px 0 40px;
+        margin: 0 25px 0;
       }
       @media #{$md-layout} {
-        margin: 30px 0 35px;
+        font-size: 40px;
+
+        margin: 0 20px 0;
       }
       @media #{$xs-layout} {
-        margin: 20px 0 5px;
+        font-size: 30px;
+
+        margin: 0 20px 20px;
       }
-      span {
-        font-size: 48px;
-        font-weight: 300;
+      p {
+        font-size: 18px;
+        font-weight: 500;
 
-        display: inline-block;
+        margin: 33px 0 0;
 
-        margin: 0 34px 0;
+        text-transform: uppercase;
 
         color: #fff;
-        @media #{$lg-layout} {
-          margin: 0 25px 0;
-        }
         @media #{$md-layout} {
-          font-size: 40px;
-
-          margin: 0 20px 0;
+          margin: 20px 0 0;
         }
         @media #{$xs-layout} {
-          font-size: 30px;
-
-          margin: 0 20px 20px;
-        }
-        p {
-          font-size: 18px;
-          font-weight: 500;
-
-          margin: 33px 0 0;
-
-          text-transform: uppercase;
-
-          color: #fff;
-          @media #{$md-layout} {
-            margin: 20px 0 0;
-          }
-          @media #{$xs-layout} {
-            margin: 10px 0 0;
-          }
+          margin: 10px 0 0;
         }
       }
+    }
   }
 }
 
@@ -2364,7 +2333,6 @@
   }
 }
 
-
 .ht-swiper-button-nav {
   &:after {
     font-size: 0;
@@ -2393,7 +2361,6 @@
     }
   }
 }
-
 
 .slider-content-medical {
   @media #{$xs-layout} {
@@ -2468,7 +2435,6 @@
     }
   }
 }
-
 
 .slider-content-red {
   @media #{$xs-layout} {
@@ -2549,7 +2515,6 @@
     }
   }
 }
-
 
 .slider-content-brown {
   @media #{$xs-layout} {
@@ -2755,7 +2720,6 @@
       line-height: 1.4;
 
       color: #000;
-
 
       @media #{$lg-layout,
       $md-layout} {

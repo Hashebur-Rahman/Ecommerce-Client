@@ -6,7 +6,7 @@ import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 
-const LoginRegister = () => {
+const Login = () => {
   let { pathname } = useLocation();
 
   useEffect(() => {
@@ -24,8 +24,8 @@ const LoginRegister = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="login Register"
-        description="Login Register pages Shohoj Dokan Online Shop."
+        titleTemplate="Login"
+        description="Login  pages Shohoj Dokan Online Shop."
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
@@ -33,7 +33,7 @@ const LoginRegister = () => {
           pages={[
             { label: "Home", path: process.env.PUBLIC_URL + "/" },
             {
-              label: "Login Register",
+              label: "Login",
               path: process.env.PUBLIC_URL + pathname,
             },
           ]}
@@ -48,11 +48,6 @@ const LoginRegister = () => {
                       <Nav.Item>
                         <Nav.Link eventKey="login">
                           <h4>Login</h4>
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="register">
-                          <h4>Register</h4>
                         </Nav.Link>
                       </Nav.Item>
                     </Nav>
@@ -87,13 +82,23 @@ const LoginRegister = () => {
                           </div>
                         </div>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="register">
+                      {/* <Tab.Pane eventKey="register">
                         <div className="login-form-container">
                           <div className="login-register-form">
                             <form>
                               <input
+                                name="user-email"
+                                placeholder="Email"
+                                type="email"
+                              />
+                              <input
                                 type="text"
                                 name="user-name"
+                                placeholder="Username"
+                              />
+                              <input
+                                type="number"
+                                name="number"
                                 placeholder="Username"
                               />
                               <input
@@ -101,11 +106,7 @@ const LoginRegister = () => {
                                 name="user-password"
                                 placeholder="Password"
                               />
-                              <input
-                                name="user-email"
-                                placeholder="Email"
-                                type="email"
-                              />
+
                               <div className="button-box">
                                 <button type="submit">
                                   <span>Register</span>
@@ -114,7 +115,7 @@ const LoginRegister = () => {
                             </form>
                           </div>
                         </div>
-                      </Tab.Pane>
+                      </Tab.Pane> */}
                     </Tab.Content>
                   </Tab.Container>
                 </div>
@@ -127,4 +128,4 @@ const LoginRegister = () => {
   );
 };
 
-export default LoginRegister;
+export default Login;

@@ -12,6 +12,7 @@ const ScrollToTop = () => {
             >
                 <i className="fa fa-angle-double-up"></i>
             </button>
+            
         );
     }
     return null;

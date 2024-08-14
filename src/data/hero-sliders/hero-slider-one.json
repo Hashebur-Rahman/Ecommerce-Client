@@ -1,79 +1,52 @@
 [
   {
-    "id": 1,
-    "title": "Smart Products",
-    "subtitle": "Winter Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-hm1-2.png",
-    "url": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65f3e35bce7f01d46d491b2c"
+    },
+    "title": "Eid Collection 2024",
+    "productTitle": "Eid El Fitr Offer  35% Discount ",
+    "image": "/assets/img/slider/eidoffer.png",
+    "category": "65a4ac0f3e3d7071ea964daa",
+    "createdAt": {
+      "$date": "2024-03-15T05:57:47.837Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-15T16:42:48.107Z"
+    },
+    "__v": 0
   },
+
   {
-    "id": 2,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
+    "_id": {
+      "$oid": "659830321e5e50babf4e72ab"
+    },
+    "title": "Smart Product",
+    "productTitle": "Winter Offer 2024 Collection",
+    "image": "/assets/img/slider/Openingoffer.png",
+    "category": "65982f781e5e50babf4e7288",
+    "createdAt": {
+      "$date": "2024-01-05T16:37:06.002Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-05T16:37:06.002Z"
+    },
+    "__v": 0
   },
+
   {
-    "id": 3,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 4,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 5,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 6,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 7,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 8,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 9,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-1.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 10,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-4.png",
-    "url": "/shop-grid-standard"
-  },
-  {
-    "id": 11,
-    "title": "Smart Products",
-    "subtitle": "Summer Offer 2024 Collection",
-    "image": "/assets/img/slider/single-slide-2.png",
-    "url": "/shop-grid-standard"
+    "_id": {
+      "$oid": "659830731e5e50babf4e72af"
+    },
+    "title": "New Collection",
+    "productTitle": "New Year Collection",
+    "image": "/assets/img/slider/shohojdokan1.png",
+    "category": "65982f8e1e5e50babf4e728c",
+    "createdAt": {
+      "$date": "2024-01-05T16:38:11.883Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-05T16:38:11.883Z"
+    },
+    "__v": 0
   }
 ]
