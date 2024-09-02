@@ -41,29 +41,31 @@ export default function ShowCategortyProduct({
     getAllProduct();
   }, []);
 
+  console.log(id);
   const categoryProduct = product.filter((item) => item.category === `${id}`);
 
-  // console.log(categoryProduct);
+  console.log(categoryProduct);
   // console.log(id);
 
-  const handleClick = () => {
+  const handleClick = (id, name) => {
+    navigate(`/products/${id}/${name}`);
     window.location.reload();
   };
 
   return (
     <Fragment>
       <SEO
-        titleTemplate="Category  Product"
-        description="Category pages of  Shohoj Dokan Online Shop."
+        titleTemplate={id}
+        description="Category pages of  Shohoj Dokan Online Shop BD."
       />
 
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb
           pages={[
-            { label: "Home", path: process.env.PUBLIC_URL + "/" },
+            { label: "Category", path: process.env.PUBLIC_URL + "/" },
             {
-              label: "Category Product",
+              label: id,
               path: process.env.PUBLIC_URL + pathname,
             },
           ]}
@@ -92,20 +94,28 @@ export default function ShowCategortyProduct({
                   >
                     {categoryProduct.map((p) => (
                       <Col className={clsx("product-wrap")} key={p._id}>
-                        <Card
-                          onClick={() => {
-                            navigate(`/products/${p._id}`);
-                            handleClick();
-                          }}
-                        >
+                        <Card onClick={() => handleClick(p._id, p.name)}>
                           <div className="product-img img-fluid">
                             <Link
                               to={process.env.PUBLIC_URL + "/products/" + p._id}
                             >
+                              {/* Display placeholder initially */}
                               <img
-                                className="default-img "
+                                className="default-img"
+                                src={`${process.env.PUBLIC_URL}/shohojdokan-product-loader.png`}
+                                alt={p.name}
+                                style={{ display: "block" }}
+                              />
+                              {/* Once loaded, show the actual image */}
+                              <img
+                                className="default-img"
                                 src={p.image}
-                                alt=""
+                                alt={p.name}
+                                onLoad={(e) =>
+                                  (e.currentTarget.previousSibling.style.display =
+                                    "none")
+                                }
+                                style={{ display: "block" }}
                               />
                             </Link>
                             {p.discount || p.new ? (

@@ -2,25 +2,25 @@
   {
     "id": "1",
     "iconClass": "pe-7s-portfolio",
-    "countNum": 360,
-    "title": "project done"
+    "countNum": 1000,
+    "title": "Order done"
   },
   {
     "id": "2",
     "iconClass": "pe-7s-cup",
-    "countNum": 690,
-    "title": "cups of coffee"
+    "countNum": 50,
+    "title": "New Arrivals Added"
   },
   {
     "id": "3",
     "iconClass": "pe-7s-light",
-    "countNum": 100,
+    "countNum": 25,
     "title": "branding"
   },
   {
     "id": "4",
     "iconClass": "pe-7s-smile",
-    "countNum": 420,
+    "countNum": 980,
     "title": "happy clients"
   }
 ]

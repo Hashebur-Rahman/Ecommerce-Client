@@ -34,7 +34,8 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
 
   const limitedProduct = relatesProduct.slice(0, 20);
 
-  const handleClick = () => {
+  const handleClick = (id, name) => {
+    navigate(`/products/${id}/${name}`);
     window.location.reload();
   };
 
@@ -54,15 +55,26 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
         <Row xs={2} sm={3} md={4} lg={4} className="xs:g-2 g-2 h-75">
           {limitedProduct.map((p) => (
             <Col className={clsx("product-wrap")} key={p._id}>
-              <Card
-                onClick={() => {
-                  handleClick();
-                  navigate(`/products/${p._id}`);
-                }}
-              >
+              <Card onClick={() => handleClick(p._id, p.name)}>
                 <div className="product-img">
                   <Link to={process.env.PUBLIC_URL + "/products/" + p._id}>
-                    <img className="default-img " src={p.image} alt="" />
+                    {/* Display placeholder initially */}
+                    <img
+                      className="default-img"
+                      src={`${process.env.PUBLIC_URL}/shohojdokan-product-loader.png`}
+                      alt={p.name}
+                      style={{ display: "block" }}
+                    />
+                    {/* Once loaded, show the actual image */}
+                    <img
+                      className="default-img"
+                      src={p.image}
+                      alt={p.name}
+                      onLoad={(e) =>
+                        (e.currentTarget.previousSibling.style.display = "none")
+                      }
+                      style={{ display: "block" }}
+                    />
                   </Link>
                   {p.discount || p.new ? (
                     <div className="product-img-badges">

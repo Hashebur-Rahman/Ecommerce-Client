@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import Logo from "../../components/header/Logo";
 
 const Login = () => {
   let { pathname } = useLocation();
@@ -46,9 +47,10 @@ const Login = () => {
                   <Tab.Container defaultActiveKey="login">
                     <Nav variant="pills" className="login-register-tab-list">
                       <Nav.Item>
-                        <Nav.Link eventKey="login">
-                          <h4>Login</h4>
-                        </Nav.Link>
+                        <Logo
+                          imageUrl="/assets/img/logo/logo.png"
+                          logoClass="logo"
+                        />
                       </Nav.Item>
                     </Nav>
                     <Tab.Content>

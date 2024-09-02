@@ -1,30 +1,162 @@
 [
   {
-    "id": "1",
-    "image": "/assets/img/product/hm9-cagi-1.jpg",
-    "subtitle": "4 Products",
-    "title": "Bluetooth Speaker",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65a4ac0f3e3d7071ea964daa"
+    },
+    "name": "Panjabi-&-Kurta",
+    "image": "/assets/img/product/panjabi-kurta-cotton-sahara-pakija.jpg",
+    "subCategory": [
+      "Sahara Panjabi",
+      "Cotton",
+      "Corton Panjabi",
+      "Pakija Panjabi",
+      "Short Panjabi",
+      "Sami long Embroidery",
+      "Herringbone"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:52:47.195Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-15T16:57:50.855Z"
+    },
+    "__v": 7
   },
   {
-    "id": "2",
-    "image": "/assets/img/product/hm9-cagi-2.jpg",
-    "subtitle": "8 Products",
-    "title": "Bluetooth Headphone",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65982f781e5e50babf4e7288"
+    },
+    "name": "Women's-Fashion",
+    "image": "/assets/img/product/womens-fashion-category.jpg",
+    "subCategory": [
+      "Baby Collection",
+      "Nayra ",
+      "Three-Pcs",
+      "Half silk lace border saree",
+      "Two pcs",
+      "Only Sari",
+      "Embroidery Kurti Collection",
+      "Orna and Grown",
+      "Combo Sari",
+      "Top Collection",
+      "Sari",
+      "Borka ",
+      "21 Feb Collection",
+      " 𝐕𝐚𝐥𝐞𝐧𝐭𝐢𝐧𝐞 𝐬𝐩𝐞𝐜𝐢𝐚𝐥 𝐩𝐚𝐜𝐤𝐚𝐠𝐞",
+      "Stylish Party Long Gown"
+    ],
+    "createdAt": {
+      "$date": "2024-01-05T16:34:00.822Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-17T04:20:52.923Z"
+    },
+    "__v": 16
   },
   {
-    "id": "3",
-    "image": "/assets/img/product/hm9-cagi-3.jpg",
-    "subtitle": "9 Products",
-    "title": "Kardon Aura Studio",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65a4ac373e3d7071ea964db0"
+    },
+    "name": "Shirts-Collection",
+    "image": "/assets/img/product/mens-womens-shirts-collection.jpg",
+    "subCategory": [
+      "Denim Shirt",
+      "Double Pocket",
+      "Sleeve Katua",
+      "Formal Shirt",
+      "Katua",
+      "Formal Shart",
+      "Haif hata",
+      "Bank color"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:53:27.655Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-15T16:55:26.649Z"
+    },
+    "__v": 8
   },
   {
-    "id": "4",
-    "image": "/assets/img/product/hm9-cagi-2.jpg",
-    "subtitle": "4 Products",
-    "title": "Bluetooth Speaker",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65982f8e1e5e50babf4e728c"
+    },
+    "name": "Pants-&-Trousers",
+    "image": "/assets/img/product/pants-trousers-winter-cotton-mobile.jpg",
+    "subCategory": ["Winter Jacket", "Zims Pant", "Mobile pant", "Cotton pant"],
+    "createdAt": {
+      "$date": "2024-01-05T16:34:22.760Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-25T17:32:03.630Z"
+    },
+    "__v": 4
+  },
+  {
+    "_id": {
+      "$oid": "65a4aa62e6147dcd19eb52e8"
+    },
+    "name": "T-Shirts-Collection",
+    "image": "/assets/img/product/t-shirts-collection-cotton-graphic-polo.jpg",
+    "subCategory": [
+      "Cotton  ",
+      "Sleeve T-Shirts",
+      "Half Sleeve",
+      "Jersey",
+      "Polo T-shart",
+      "Full sleeve"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:45:38.693Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-17T03:39:58.556Z"
+    },
+    "__v": 6
+  },
+  {
+    "_id": {
+      "$oid": "659c1df706744fb450d64d25"
+    },
+    "name": "Beauty-&-Cosmetics",
+    "image": "/assets/img/product/beauty-cosmetics-products-skincare-makeup.jpg",
+    "subCategory": ["addidas", "Apex"],
+    "createdAt": {
+      "$date": "2024-01-08T16:08:23.168Z"
+    },
+    "updatedAt": {
+      "$date": "2024-02-04T14:52:55.589Z"
+    },
+    "__v": 2
+  },
+  {
+    "_id": {
+      "$oid": "65a4a952e6147dcd19eb52e2"
+    },
+    "name": "Baby-Essentials",
+    "image": "/assets/img/product/baby-essentials-clothing-and-accessories.jpg",
+    "subCategory": [],
+    "createdAt": {
+      "$date": "2024-01-15T03:41:06.099Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-15T03:41:06.099Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65a4a9e33e3d7071ea964da5"
+    },
+    "name": "Hoodies-&-Sweatshirts",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1707058725/rpphv8rudvfm9u2eolkz.jpg",
+    "subCategory": ["Men's Hoodie", "Cotton Winter", "Woman Hudi"],
+    "createdAt": {
+      "$date": "2024-01-15T03:43:31.635Z"
+    },
+    "updatedAt": {
+      "$date": "2024-02-04T14:58:46.709Z"
+    },
+    "__v": 3
   }
 ]

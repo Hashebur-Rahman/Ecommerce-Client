@@ -51,7 +51,10 @@ const Cart = () => {
 
   const handleCreateOrder = async (e) => {
     e.preventDefault();
-
+    if (!name || !phone || !selectedDistrict || !selectedDivision || !address) {
+      cogoToast.error("Please fill in all In your Address.");
+      return;
+    }
     try {
       const productData = {
         name: name,
@@ -89,30 +92,27 @@ const Cart = () => {
   };
 
   const calculateDiscount = (code) => {
-    const couponCodes = {
-      shohojdokan40: 20,
-      hashebur15: 15,
-      rayhan15: 15,
-      mamun15: 15,
-      alamin15: 15,
-      anu15: 15,
-      naim15: 15,
-      uttalbangla: 15,
+    const couponCodes = process.env.REACT_APP_COUPON_CODES.split(",").reduce(
+      (acc, pair) => {
+        const [key, value] = pair.split("=");
+        acc[key] = parseInt(value, 10);
+        return acc;
+      },
+      {}
+    );
 
-      // Add more coupon codes as needed
-    };
-
-    // Check if the provided code is in the couponCodes object
     if (code in couponCodes) {
       return couponCodes[code];
     } else {
-      // If the code is not found, return 0 discount
       return 0;
     }
   };
 
   const deliveryCharge =
-    selectedDistrict.toLowerCase() === "kurigram" ? 60 : 80;
+    selectedDistrict.toLowerCase() === "dhaka" ||
+    selectedDistrict.toLowerCase() === "kurigram"
+      ? 60
+      : 80;
 
   // console.log(deliveryCharge, selectedDistrict);
   // console.log(Math.round(couponPrice + 60));
@@ -129,8 +129,8 @@ const Cart = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Cart"
-        description="Cart page of Shohoj Dokan Online Shop."
+        titleTemplate="Checkout Pages"
+        description="Cart page of Shohoj Dokan Online Shop BD."
       />
 
       <LayoutOne headerTop="visible">
@@ -408,17 +408,15 @@ const Cart = () => {
                       </h5>
 
                       <h5 className="grand-totall-title1">
-                        Total{" "}
+                        Total
                         <span>
-                          {" "}
                           ৳{Math.round(cartTotalPrice + deliveryCharge)}
                         </span>
                       </h5>
                       {couponPrice && (
                         <h5 className="grand-totall-title1">
-                          Coupon Discount{" "}
+                          Coupon Discount
                           <span>
-                            {" "}
                             ৳ {Math.round(cartTotalPrice - couponPrice)}
                           </span>
                         </h5>
@@ -445,8 +443,8 @@ const Cart = () => {
                       <i className="pe-7s-cart"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      No items found in cart <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop"}>
+                      No items found in cart <br />
+                      <Link to={process.env.PUBLIC_URL + "/products"}>
                         Shop Now
                       </Link>
                     </div>

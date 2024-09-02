@@ -7,7 +7,7 @@ const SEO = ({ title, titleTemplate, description }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {title} | {titleTemplate}
+          {titleTemplate} | {title}
         </title>
         <meta name="description" content={description} />
       </Helmet>
@@ -24,8 +24,7 @@ SEO.propTypes = {
 SEO.defaultProps = {
   title: "Shohojdokan ",
   titleTemplate: "Product Page",
-  description:
-    "Product page of Shohoj Dokan Online Shop.",
+  description: "Product page of Shohoj Dokan Online Shop.",
 };
 
 export default SEO;

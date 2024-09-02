@@ -21,7 +21,7 @@ const HeroSliderOneSingle = ({ data }) => {
                 }}
                 className="slider-btn btn-hover"
               >
-                <Link className="animated" to={`/category/${data.category}`}>
+                <Link className="animated" to={`/category/${data.name}`}>
                   SHOP NOW
                 </Link>
               </div>

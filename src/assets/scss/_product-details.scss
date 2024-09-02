@@ -569,6 +569,28 @@
   }
 }
 
+// loader image rotated 
+.loader img {
+  width: 100px; /* Adjust size */
+  height: 100px;
+  animation: rotate 1.5s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 10px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 .product-large-image-wrapper {
   position: relative;
   .product-img-badges {

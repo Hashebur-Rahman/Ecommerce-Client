@@ -12,7 +12,9 @@ const MobileNavMenu = () => {
         </li>
 
         <li>
-          <Link to={process.env.PUBLIC_URL + "/shop"}>{t("collection")}</Link>
+          <Link to={process.env.PUBLIC_URL + "/products"}>
+            {t("collection")}
+          </Link>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/about"}>{t("about_us")}</Link>

@@ -88,6 +88,7 @@ const ProductDescriptionInfo = ({
             <label className={`pro-details-size-content--single`} key={key}>
               <input
                 type="radio"
+                style={{ cursor: "pointer" }}
                 value={singleSize}
                 checked={singleSize === selectedProductSize ? "checked" : ""}
                 onChange={() => {
@@ -166,11 +167,6 @@ const ProductDescriptionInfo = ({
       </div>
       <div className="pro-details-social">
         <ul>
-          <li>
-            <a href="https://www.facebook.com/profile.php?id=61555547074882">
-              <i className="fa fa-facebook" />
-            </a>
-          </li>
           <li>
             <a
               title="facebook Pages"

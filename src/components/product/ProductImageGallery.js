@@ -11,9 +11,12 @@ import ReactImageMagnify from "react-image-magnify";
 const ProductImageGallery = ({ product }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [index, setIndex] = useState(-1);
-  const slides = product.image;
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-  // swiper slider settings
+  // Ensure `slides` is an array, even if it's a single image
+  const slides = Array.isArray(product.image) ? product.image : [product.image];
+
+  // Swiper slider settings
   const gallerySwiperParams = {
     spaceBetween: 10,
     loop: true,
@@ -39,42 +42,50 @@ const ProductImageGallery = ({ product }) => {
   return (
     <Fragment>
       <div className="product-large-image-wrapper">
+        {/* Display badges */}
         {product.discount || product.new ? (
           <div className="product-img-badges">
-            {product.discount ? (
+            {product.discount && (
               <span className="pink">-{product.discount}%</span>
-            ) : (
-              ""
             )}
-            {product.new ? <span className="purple">New</span> : ""}
+            {product.new && <span className="purple">New</span>}
           </div>
-        ) : (
-          ""
-        )}
+        ) : null}
 
-     
+        {/* Display placeholder initially */}
+        <img
+          className="default-img "
+          
+          src={`${process.env.PUBLIC_URL}/shohojdokan-product-loader.png`}
+          alt={product.name}
+          style={{ height:'350px', display: imageLoaded ? "none" : "block" }}
+        />
+
+        {/* Once loaded, show the actual image */}
+        {slides.length > 0 && (
           <ReactImageMagnify
             {...{
               smallImage: {
-                alt: "Product Image",
+                alt: product.name,
                 isFluidWidth: true,
-                src: product.image,
+                src: slides[0], // Display the first image by default
+                onLoad: () => setImageLoaded(true),
               },
               largeImage: {
-                src: product.image,
+                src: slides[0], // Display the first image by default
                 backgroundColor: "White",
                 width: 800,
                 height: 1200,
-             
               },
+              enlargedImagePosition: "over",
             }}
           />
-         
-        {/* <img className="img-fluid" src={product.image} alt="" /> */}
+        )}
 
-        {/* {product?.image?.length ? (
+        {/* Lightbox and Swiper (if needed) */}
+        {slides.length > 1 && (
           <Swiper options={gallerySwiperParams}>
-            {product.image.map((single, key) => (
+            {slides.map((single, key) => (
               <SwiperSlide key={key}>
                 <button
                   className="lightgallery-button"
@@ -83,11 +94,7 @@ const ProductImageGallery = ({ product }) => {
                   <i className="pe-7s-expand1"></i>
                 </button>
                 <div className="single-image">
-                  <img
-                    src={process.env.PUBLIC_URL + single}
-                    className="img-fluid"
-                    alt=""
-                  />
+                  <img src={single} className="img-fluid" alt={product.name} />
                 </div>
               </SwiperSlide>
             ))}
@@ -99,14 +106,19 @@ const ProductImageGallery = ({ product }) => {
               plugins={[Thumbnails, Zoom, Fullscreen]}
             />
           </Swiper>
-        ) : null} */}
+        )}
       </div>
     </Fragment>
   );
 };
 
 ProductImageGallery.propTypes = {
-  product: PropTypes.shape({}),
+  product: PropTypes.shape({
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.array]), // String or array
+    name: PropTypes.string,
+    discount: PropTypes.number,
+    new: PropTypes.bool,
+  }),
 };
 
 export default ProductImageGallery;

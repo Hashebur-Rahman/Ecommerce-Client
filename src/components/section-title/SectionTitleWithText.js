@@ -7,12 +7,13 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
       <div className="container">
         <div className="welcome-content text-center">
           <h5>Who Are We</h5>
-          <h1>Welcome To  Shohojdokan</h1>
+          <h1>Welcome To Shohojdokan</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt labor et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commo consequat irure{" "}
+            At Shohojdokan, we are committed to providing you with an effortless
+            and enjoyable shopping experience. We offer a wide range of products
+            to cater to your everyday needs, combining convenience with quality.
+            Our aim is to make online shopping simple, reliable, and accessible
+            to everyone.
           </p>
         </div>
       </div>
@@ -22,7 +23,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
 
 SectionTitleWithText.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default SectionTitleWithText;

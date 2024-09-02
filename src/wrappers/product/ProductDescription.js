@@ -37,6 +37,10 @@ const ProductDescription = ({
     if (id) getProduct();
   }, [id]);
 
+
+
+
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -74,8 +78,16 @@ const ProductDescription = ({
   return (
     <Fragment>
       <SEO
-        titleTemplate="Shop Page"
-        description="Shop page of   Shohoj Dokan Online Shop."
+        titleTemplate={`${
+          product.name ? product.name : "Product"
+        } | Shohoj Dokan`}
+        description={`Buy ${
+          product.name ? product.name : "this product"
+        } at Shohoj Dokan. ${
+          product.description
+            ? product.description
+            : "Find the best deals and shop online."
+        }`}
       />
 
       <LayoutOne headerTop="visible">
@@ -107,6 +119,8 @@ const ProductDescription = ({
                   <ProductImageGallery product={product} />
                 )}
               </div>
+
+              {/* product Description information */}
               <div className="col-lg-6 col-md-6">
                 {loading ? (
                   <Spinner />
@@ -121,8 +135,6 @@ const ProductDescription = ({
                     compareItem={compareItem}
                   />
                 )}
-
-                 
               </div>
             </div>
           </div>

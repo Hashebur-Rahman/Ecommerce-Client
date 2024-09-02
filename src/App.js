@@ -33,6 +33,7 @@ const Compare = lazy(() => import("./pages/other/Compare"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
+const FAQ = lazy(() => import("./components/Faq/Faq.js"));
 
 const App = () => {
   return (
@@ -58,7 +59,7 @@ const App = () => {
 
             {/* Shop pages */}
             <Route
-              path={process.env.PUBLIC_URL + "/shop"}
+              path={process.env.PUBLIC_URL + "/products"}
               element={<ShopGridStandard />}
             />
 
@@ -68,7 +69,7 @@ const App = () => {
               element={<Product />}
             />
             <Route
-              path={process.env.PUBLIC_URL + "/products/:id"}
+              path={process.env.PUBLIC_URL + "/products/:id/:name"}
               element={<ProductDescription />}
             />
 
@@ -87,6 +88,10 @@ const App = () => {
             <Route
               path={process.env.PUBLIC_URL + "/contact"}
               element={<Contact />}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + "/faq"}
+              element={<FAQ />}
             />
             <Route
               path={process.env.PUBLIC_URL + "/my-account"}

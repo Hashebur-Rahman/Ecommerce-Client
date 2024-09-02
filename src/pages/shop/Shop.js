@@ -98,8 +98,8 @@ const Shop = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Shop Page"
-        description="Shop page of Shohoj Dokan Online Shop."
+        titleTemplate="Shop Products"
+        description="Shop Products of Shohoj Dokan Online Shop BD."
       />
 
       <LayoutOne headerTop="visible">
@@ -107,7 +107,7 @@ const Shop = () => {
         <Breadcrumb
           pages={[
             { label: "Home", path: process.env.PUBLIC_URL + "/" },
-            { label: "Shop Product", path: process.env.PUBLIC_URL + pathname },
+            { label: "Shop Products", path: process.env.PUBLIC_URL + pathname },
           ]}
         />
 

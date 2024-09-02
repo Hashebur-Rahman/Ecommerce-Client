@@ -1,37 +1,170 @@
 [
   {
-    "id": "1",
-    "image": "/assets/img/product/hm8-pro-1.jpg",
-    "subtitle": "2 Products",
-    "title": "Living Room",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65982f781e5e50babf4e7288"
+    },
+    "name": "Woman",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1710523332/rzswsvdunn9khf8wadkg.jpg",
+    "subCategory": [
+      "Baby Collection",
+      "Women's Fashion & Style",
+      "Three-Pcs",
+      "Elegant Women's Wear",
+      "Chic Women's Collection",
+      "Orna and Grown",
+      "Combo Sari",
+      "Top Collection",
+      "Borka",
+      "𝐕𝐚𝐥𝐞𝐧𝐭𝐢𝐧𝐞 𝐬𝐩𝐞𝐜𝐢𝐚𝐥 𝐩𝐚𝐜𝐤𝐚𝐠𝐞",
+      "Stylish Party Long Gown"
+    ],
+    "createdAt": {
+      "$date": "2024-01-05T16:34:00.822Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-17T04:20:52.923Z"
+    },
+    "__v": 16
   },
   {
-    "id": "2",
-    "image": "/assets/img/product/hm8-pro-2.jpg",
-    "subtitle": "3 Products",
-    "title": "Drawing Room",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65982f8e1e5e50babf4e728c"
+    },
+    "name": "Pants",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1710523438/hp9d0vw53md59hwvclsj.jpg",
+    "subCategory": [
+      "Trendy Pants Collection",
+      "Comfort & Style Pants",
+      "Mobile pant",
+      "Premium Pants Selection"
+    ],
+    "createdAt": {
+      "$date": "2024-01-05T16:34:22.760Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-25T17:32:03.630Z"
+    },
+    "__v": 4
   },
   {
-    "id": "3",
-    "image": "/assets/img/product/hm8-pro-3.jpg",
-    "subtitle": "6 Products",
-    "title": "Dining Room",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "659c1df706744fb450d64d25"
+    },
+    "name": "Cosmatic",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1707058370/kp5hmhfv8d35orpo4xwb.jpg",
+    "subCategory": [
+      "Beauty & Skincare Essentials",
+      "Luxury Cosmetics Collection",
+      "Glow & Glam Beauty Products"
+    ],
+    "createdAt": {
+      "$date": "2024-01-08T16:08:23.168Z"
+    },
+    "updatedAt": {
+      "$date": "2024-02-04T14:52:55.589Z"
+    },
+    "__v": 2
   },
   {
-    "id": "4",
-    "image": "/assets/img/product/hm8-pro-4.jpg",
-    "subtitle": "5 Products",
-    "title": "Drawing Room",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65a4a952e6147dcd19eb52e2"
+    },
+    "name": "Baby",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1705290064/chzvsgpxowkymancsjqo.jpg",
+    "subCategory": [
+      "Baby's Delight",
+      "Cute & Cozy Baby Wear",
+      "Little Ones' Essentials"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:41:06.099Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-15T03:41:06.099Z"
+    },
+    "__v": 0
   },
   {
-    "id": "5",
-    "image": "/assets/img/product/hm8-pro-2.jpg",
-    "subtitle": "3 Products",
-    "title": "Living Room",
-    "link": "/shop-grid-standard"
+    "_id": {
+      "$oid": "65a4a9e33e3d7071ea964da5"
+    },
+    "name": "Hoodie",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1707058725/rpphv8rudvfm9u2eolkz.jpg",
+    "subCategory": [
+      "Warm & Cozy Hoodies",
+      "Trendy Hoodie Collection",
+      "Stylish Winter Hoodies"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:43:31.635Z"
+    },
+    "updatedAt": {
+      "$date": "2024-02-04T14:58:46.709Z"
+    },
+    "__v": 3
+  },
+  {
+    "_id": {
+      "$oid": "65a4aa62e6147dcd19eb52e8"
+    },
+    "name": "T-Shirts",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1705290337/bfkzxiyvd5ogfsf5vttq.jpg",
+    "subCategory": [
+      "Casual & Cool T-Shirts",
+      "Sleeve T-Shirts",
+      "Half Sleeve",
+      "Jersey",
+      "Trendy Tees Collection",
+      "Everyday Essential T-Shirts"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:45:38.693Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-17T03:39:58.556Z"
+    },
+    "__v": 6
+  },
+  {
+    "_id": {
+      "$oid": "65a4ac0f3e3d7071ea964daa"
+    },
+    "name": "Panjabi",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1710521869/rdpwtufead8dwkbzwe3k.jpg",
+    "subCategory": [
+      "Classic Men's Panjabis",
+      "Elegant Panjabi Collection",
+      "Corton Panjabi",
+      "Traditional Panjabi Styles"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:52:47.195Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-15T16:57:50.855Z"
+    },
+    "__v": 7
+  },
+  {
+    "_id": {
+      "$oid": "65a4ac373e3d7071ea964db0"
+    },
+    "name": "Shirt",
+    "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1710521725/bimlnqqi2fp3umtyza1v.jpg",
+    "subCategory": [
+      "Denim Shirt",
+      "Double Pocket",
+      "Smart & Stylish Shirts",
+      "Premium Shirt Collectiont",
+      "Haif hata",
+      "Casual & Formal Shirts"
+    ],
+    "createdAt": {
+      "$date": "2024-01-15T03:53:27.655Z"
+    },
+    "updatedAt": {
+      "$date": "2024-03-15T16:55:26.649Z"
+    },
+    "__v": 8
   }
 ]

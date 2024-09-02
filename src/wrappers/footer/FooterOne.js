@@ -101,7 +101,7 @@ const FooterOne = ({
                     <Link to={process.env.PUBLIC_URL + "#/"}>Size guide</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>FAQs</Link>
+                    <Link to={process.env.PUBLIC_URL + "/faq"}>FAQs</Link>
                   </li>
                 </ul>
               </div>

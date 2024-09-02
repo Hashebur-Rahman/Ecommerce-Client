@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import Logo from "../../components/header/Logo";
 
 const Register = () => {
   let { pathname } = useLocation();
@@ -45,11 +46,7 @@ const Register = () => {
                 <div className="login-register-wrapper">
                   <Tab.Container defaultActiveKey="register">
                     <Nav variant="pills" className="login-register-tab-list">
-                      <Nav.Item>
-                        <Nav.Link eventKey="register">
-                          <h4>Register</h4>
-                        </Nav.Link>
-                      </Nav.Item>
+                    <Logo imageUrl="/assets/img/logo/logo.png" logoClass="logo" />
                     </Nav>
                     <Tab.Content>
                       <Tab.Pane eventKey="register">
